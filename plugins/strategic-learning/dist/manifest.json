@@ -1,0 +1,11 @@
+{
+  "apiVersion": 1,
+  "id": "strategic-learning",
+  "name": "Strategic Learning Programme",
+  "version": "1.0.0",
+  "minAppVersion": "0.7.0",
+  "description": "An integrated eleven-domain curriculum with diagnostic, adaptive teaching and interdisciplinary learning guidance.",
+  "main": "main.js",
+  "backend": "backend.cjs",
+  "styles": "styles.css"
+}
