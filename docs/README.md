@@ -21,6 +21,10 @@
 
 [The theory of learning and teaching](teaching-methodology.md) is the owner's theory underlying the teaching method. It is not a runtime specification or evidence of measured learning outcomes.
 
+## Curriculum specifications
+
+- [Mechanistic Interpretability, AI Safety and Model Auditing](curriculum/mechanistic-interpretability-ai-safety-model-auditing.md) — discipline 12 in the integrated Strategic Learning Programme, connected to the AI Engineering Learning Path and applied across Cloud L, Melat Supermarket, MMV Medical, and Home; includes six stages, diagnostics, project investigations, and evidence-based completion criteria.
+
 ## History
 
 [Archived design documents](archive/README.md) preserve earlier plans and decisions. They are not current specifications or instructions for development.
