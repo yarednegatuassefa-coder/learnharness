@@ -9,15 +9,13 @@ export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
   if (pathname === LOGIN_PATH || pathname === SESSION_PATH) return NextResponse.next();
 
-  // Preserve the local desktop capability model; owner sessions are for hosted mode.
   if (process.env.LH_HOSTED_OWNER_AUTH === "1") {
     if (!ownerAuthConfigured()) {
-      return pathname.startsWith("/api/")
+      return pathname === "/api" || pathname.startsWith("/api/")
         ? NextResponse.json({ error: "Owner authentication is not configured." }, { status: 503, headers: { "Cache-Control": "no-store" } })
         : NextResponse.redirect(new URL(LOGIN_PATH, request.url));
     }
-    const session = ownerSessionValid(request.headers.get("cookie"));
-    if (!session) {
+    if (!ownerSessionValid(request.headers.get("cookie"))) {
       if (pathname === "/api" || pathname.startsWith("/api/")) {
         return NextResponse.json({ error: "Authentication required." }, { status: 401, headers: { "Cache-Control": "no-store" } });
       }
@@ -41,8 +39,7 @@ export function proxy(request: NextRequest) {
 
 export const config = {
   matcher: [
-    "/((?!_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|login).*)",
-    // Exact streamed endpoint skips Proxy body cloning; its handler performs both gates.
+    "/((?!_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|login|api/plugins/[^/]+/documents/markdown).*)",
     "/api/plugins/[^/]+/documents/markdown",
   ],
 };
