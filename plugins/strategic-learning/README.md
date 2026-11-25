@@ -54,8 +54,32 @@ Install Lastbook separately from its official project and complete its first-run
 - The plugin does not claim mastery from exposure or graph presence; learners must demonstrate retention and transfer.
 - This plugin is trusted local code, like all LearnHarness plugins. Review source before enabling.
 
-## Universal publishing workflow
+## Universal publishing workflow and engine routing
 
-The curriculum view also includes a reusable publishing workflow for turning learning and project work into structured Markdown artifacts. It provides artifact patterns for research/strategy briefs, business operating documents, healthcare/data reports, SOPs/field manuals, film development packs and learning dossiers, plus a copyable prompt that emphasizes audience, evidence, assumptions, limitations and next steps.
+The curriculum view includes a reusable publishing workflow for turning learning and project work into structured artifacts. It provides patterns for research/strategy briefs, business operating documents, healthcare/data reports, SOPs/field manuals, film development packs and learning dossiers.
 
-This is a **workflow layer**, not a universal document renderer. Choose the final format based on the artifact: Markdown for editable source, PDF/DOCX for formal reports, spreadsheets for tabular analysis, slides for presentations, and screenplay-specific formatting for scripts. Homebrewery is treated as an optional specialist tool for D&D/fantasy-style pages; it is not the default publishing engine for every project and is not integrated or auto-published by this plugin.
+The **Publishing engine router** keeps one source-first workflow while directing different artifacts to appropriate output routes:
+
+| Route | Best fit | Typical output |
+| --- | --- | --- |
+| Homebrewery | D&D and fantasy sourcebooks | Themed, multi-column web pages |
+| Professional documents | Business, healthcare, research and operations | Markdown / DOCX / PDF / slide decks |
+| Film production | Screenplays and production planning | Screenplay-formatted script, shot list, storyboard and schedule |
+| Data outputs | Analysis and decision support | CSV / XLSX, charts and dashboards |
+
+### Homebrewery is a separate specialist tool
+
+[Open Homebrewery](https://homebrewery.naturalcrit.com/) · [Source code](https://github.com/naturalcrit/homebrewery)
+
+Use Homebrewery when the Player's Handbook-style visual language is appropriate for a D&D or fantasy publication. It is **not** the default renderer for business, healthcare, research or operating documents.
+
+LearnHarness does not install, embed, host, sync with or automatically publish to Homebrewery. The plugin links to the independent service and documents when to use it. You open it separately and move your prepared Markdown into it when appropriate.
+
+### Standard publishing handoff
+
+1. Preserve the canonical editable source (Markdown, screenplay text or structured data).
+2. Select the output route based on audience, task and required format.
+3. Render or export with the appropriate specialist tool.
+4. Review evidence, calculations, citations, privacy, layout and the final deliverable before distribution.
+
+This is a **workflow and routing layer**, not a universal document renderer. The point is to keep the central process consistent without forcing every project into the same design or application.
