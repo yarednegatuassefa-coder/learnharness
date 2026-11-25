@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches: [main, hosting/railway-private-readiness]
   pull_request:
   workflow_dispatch:
 
