@@ -23,6 +23,7 @@
 
 ## Curriculum specifications
 
+- [Forward Deployed Engineer (FDE) Learning Pathway](curriculum/forward-deployed-engineer-pathway.md) — a cross-disciplinary career pathway covering customer discovery, LLM platforms, agents, MCP, skills, AI-assisted software delivery, integrations, production operations, safety, and field deployment. Includes Anthropic Academy resources, applied capstones for Cloud L, Melat Supermarket, MMV Medical, and Home, and evidence-based readiness criteria. This is a pathway, not a new discipline.
 - [Mechanistic Interpretability, AI Safety and Model Auditing](curriculum/mechanistic-interpretability-ai-safety-model-auditing.md) — discipline 12 in the integrated Strategic Learning Programme, connected to the AI Engineering Learning Path and applied across Cloud L, Melat Supermarket, MMV Medical, and Home; includes six stages, diagnostics, project investigations, and evidence-based completion criteria.
 
 ## History
