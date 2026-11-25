@@ -43,7 +43,7 @@ Read-only prompts and application assets remain in the application bundle. Impor
 
 ## Remaining mandatory blockers
 
-1. **Plugin execution:** community and user-installed plugins execute trusted Node.js code in the current process. Disable community plugin installation and plugin-management mutation routes for public hosting, or implement a tested allowlist/isolation policy. Authentication does not sandbox plugins.
+1. **Plugin execution:** hosted owner mode now skips community plugin discovery entirely; app-owned Core plugins remain available. Community plugins are arbitrary Node.js code and are not sandboxed. Do not add a community-plugin allowlist or enable community execution until a separate isolation/security review is complete.
 2. **Single instance:** use exactly one service replica. Filesystem stores, job admission and process-local coordination are not distributed.
 3. **Storage validation:** mount the durable volume, verify every mutable path resolves beneath it, and test data and credential persistence across restart and redeploy.
 4. **Origin protection:** confirm the service's provider URL is not bypassing any intended network access policy. Application auth remains the primary gate, including on the provider's direct domain.
