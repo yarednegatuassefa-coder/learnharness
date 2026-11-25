@@ -1,6 +1,8 @@
 # Universal Project Operating Standard
 
-**Status:** Portfolio-wide operating standard  
+**Status:** Portfolio-wide operating standard
+**Canonical portfolio standard:** [Home — Workflow Quality and Evaluation](https://github.com/yarednegatuassefa-coder/home/blob/main/standards/workflow-quality.md). This file preserves the original project-level reference and adoption map; use the Home standard as the cross-project source of truth.
+  
 **Applies to:** Every current and future project, product, business, and operational system  
 **Version:** 1.0
 
