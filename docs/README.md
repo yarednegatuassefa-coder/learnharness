@@ -21,6 +21,10 @@
 
 [The theory of learning and teaching](teaching-methodology.md) is the owner's theory underlying the teaching method. It is not a runtime specification or evidence of measured learning outcomes.
 
+## Curriculum specifications
+
+- [Mechanistic Interpretability, AI Safety and Model Auditing](curriculum/mechanistic-interpretability-ai-safety-model-auditing.md) — the 12th discipline in the integrated Strategic Learning Programme, with six stages, diagnostics, practical investigations, interdisciplinary links, and evidence-based completion criteria.
+
 ## History
 
 [Archived design documents](archive/README.md) preserve earlier plans and decisions. They are not current specifications or instructions for development.
