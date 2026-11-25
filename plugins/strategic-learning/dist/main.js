@@ -116,8 +116,38 @@ export function activate(ctx) {
         catch { pubCopy.textContent="Select and copy the prompt"; }
       },{signal});
       publish.append(pubPrompt,pubCopy);
-      const homebrew=el("p","sl-publish-note","Homebrewery is a specialized Markdown-to-styled-page tool for D&D / fantasy sourcebook presentation. Use it when that visual language fits; for business, healthcare, research or operations, use clean project-appropriate document templates instead. This plugin does not embed or automatically publish to Homebrewery.");
-      publish.append(homebrew);
+      const router=el("section","sl-engine-router");
+      router.append(
+        el("h2","","Publishing engine router"),
+        el("p","","One central workflow; specialist output routes. Keep the editable source separate from the renderer so each project uses the right production tool.")
+      );
+      const routes=el("div","sl-engine-grid");
+      const routeData=[
+        ["Homebrewery","D&D and fantasy sourcebooks","Use for themed, multi-column fantasy pages and tabletop supplements. It is a specialist renderer, not the default for ordinary business or healthcare documents.","Markdown → Homebrewery page","homebrew"],
+        ["Professional documents","Business, healthcare, research and operations","Keep the master copy in Markdown or a document editor; export formal deliverables to PDF or DOCX. Use spreadsheets for operational tables and slide decks for presentations.","Markdown / DOCX → PDF, DOCX or slides","professional"],
+        ["Film production","Screenplays and production packs","Separate the screenplay from production planning. Use screenplay-aware formatting for scripts; create shot lists, storyboards, schedules and call sheets as separate production artifacts.","Screenplay source + shot list / storyboard / schedule","film"],
+        ["Data outputs","Analysis, reporting and decision support","Keep raw data, calculations and narrative conclusions distinct. Use CSV for portable data, XLSX for working analysis and dashboards for recurring monitoring.","CSV / XLSX → charts and dashboard","data"]
+      ];
+      routeData.forEach(([name,audience,description,flow,key])=>{
+        const card=el("article","sl-engine-card");
+        card.append(el("h3","",name),el("p","sl-engine-audience",audience),el("p","",description),el("p","sl-engine-flow",flow));
+        if(key==="homebrew"){
+          const links=el("div","sl-engine-links");
+          const app=el("a","sl-engine-link","Open Homebrewery");
+          app.href="https://homebrewery.naturalcrit.com/"; app.target="_blank"; app.rel="noopener noreferrer";
+          const source=el("a","sl-engine-link","Source code");
+          source.href="https://github.com/naturalcrit/homebrewery"; source.target="_blank"; source.rel="noopener noreferrer";
+          links.append(app,source); card.append(links);
+        }
+        routes.append(card);
+      });
+      router.append(routes);
+      const handoff=el("ol","sl-engine-handoff");
+      ["Create and preserve the canonical source (Markdown, screenplay text or structured data).","Select the output route according to the reader, task and required format.","Render or export using the specialist tool; do not force every artifact through one visual template.","Review facts, calculations, citations, privacy, layout and final file before distribution."].forEach(step=>handoff.append(el("li","",step)));
+      router.append(el("h3","","Standard handoff"),handoff);
+      const homebrewNote=el("p","sl-publish-note","Homebrewery is linked as an independent specialist tool. LearnHarness does not install, embed, host, sync with or automatically publish to it. Open it separately when a D&D / fantasy page layout is appropriate.");
+      router.append(homebrewNote);
+      publish.append(router);
       root.append(intro,search,list,cross,reference,publish);
       container.append(root);
       render();
