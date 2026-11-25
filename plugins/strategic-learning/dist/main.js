@@ -30,10 +30,10 @@ export function activate(ctx) {
       intro.append(
         el("p", "sl-eyebrow", "PERSONAL KNOWLEDGE SYSTEM"),
         el("h1", "sl-title", "Strategic Learning Programme"),
-        el("p", "sl-lede", "Twelve connected disciplines. One adaptive learning process. Learn to reason, apply and retain—not merely consume information.")
+        el("p", "sl-lede", "Twelve disciplines and an applied FDE career pathway. One adaptive learning process. Learn to reason, apply and retain—not merely consume information.")
       );
       const stats = el("div", "sl-stats");
-      [["12","disciplines"],["6","stages per domain"],["1","integrated system"]].forEach(([n,l]) => {
+      [["12","disciplines"],["1","FDE career pathway"],["6","FDE stages"]].forEach(([n,l]) => {
         const item=el("div","sl-stat"); item.append(el("strong","",n),el("span","",l)); stats.append(item);
       });
       intro.append(stats);
@@ -69,6 +69,58 @@ export function activate(ctx) {
         });
       };
       search.addEventListener("input",()=>render(search.value),{signal});
+      const fde = DOMAINS.find(d=>d.id==="fde");
+      const fdeSection=el("section","sl-fde");
+      fdeSection.append(el("h2","","Forward Deployed Engineer · career pathway"),el("p","sl-fde-lede","A cross-disciplinary route from customer discovery to production deployment. This is not a thirteenth discipline. It draws on business, psychology, economics, healthcare data, supply chain, strategic communication and AI safety."));
+      const fdeNotice=el("p","sl-fde-note","Progress is stored in this plugin's local data. Mastery entries are learner-recorded claims supported by evidence notes; LearnHarness does not independently verify an artifact or run external project tests from this tracker."));
+      fdeSection.append(fdeNotice);
+      const fdeProgress=el("div","sl-fde-progress","Loading saved FDE progress…");
+      fdeSection.append(fdeProgress);
+      const fdeCards=el("div","sl-fde-grid");
+      fde.stages.forEach((stage,index)=>{
+        const n=index+1, card=el("article","sl-fde-card");
+        card.append(el("p","sl-fde-stage","STAGE "+n+" OF 6"),el("h3","",stage));
+        const diagnostic=el("p","sl-fde-diagnostic", "Diagnostic: "+fde.diagnostics[index]);
+        const assessment=el("p","sl-fde-assessment","Practical assessment: "+fde.assessment[index]);
+        card.append(diagnostic,assessment);
+        const evidence=el("textarea","sl-fde-evidence"); evidence.rows=3; evidence.maxLength=4000; evidence.placeholder="Evidence note: explain your reasoning, describe the artifact, record test results and link/reference its location. Do not paste secrets or personal data.";
+        const status=el("select","sl-fde-status");
+        [["not-started","Not started"],["in-progress","In progress"],["evidence-submitted","Evidence submitted"],["mastered","Mastered (self-recorded with evidence)"]].forEach(([value,label])=>{const option=el("option","",label);option.value=value;status.append(option);});
+        const save=el("button","sl-copy","Save progress"); save.type="button";
+        const result=el("p","sl-fde-result","");
+        save.addEventListener("click",async()=>{
+          save.disabled=true; result.textContent="Saving…";
+          try {
+            const saved=await ctx.call("fde-progress:save",{stage:n,status:status.value,evidence:evidence.value});
+            renderFdeProgress(saved); result.textContent="Saved locally.";
+          } catch(error) { result.textContent="Could not save: "+String(error?.message||error); }
+          finally { save.disabled=false; }
+        },{signal});
+        card.append(status,evidence,save,result);
+        fdeCards.append(card);
+      });
+      fdeSection.append(fdeCards);
+      const fdePrompt=el("p","sl-fde-prompt","Start an FDE session: Diagnose my current competence across the six FDE stages. Ask one diagnostic question at a time. Build a dependency-aware plan with stage deliverables and explicit assessment gates. Do not advance me because I completed a course or feel confident. Require explanation, a novel application, a counterexample/failure mode and inspectable evidence. Teach one reasoning step at a time; use unfamiliar practice cases. Treat my progress tracker as self-reported unless you actually inspect and verify the artifact.");
+      const fdeCopy=el("button","sl-copy","Copy FDE diagnostic prompt"); fdeCopy.type="button";
+      fdeCopy.addEventListener("click",async()=>{try{await navigator.clipboard.writeText(fdePrompt.textContent);fdeCopy.textContent="Copied";}catch{fdeCopy.textContent="Select and copy the prompt";}},{signal});
+      fdeSection.append(fdePrompt,fdeCopy);
+      function renderFdeProgress(data){
+        const entries=Array.isArray(data?.stages)?data.stages:[];
+        const byStage=new Map(entries.map(x=>[x.stage,x]));
+        const mastered=entries.filter(x=>x.status==="mastered").length;
+        fdeProgress.textContent=mastered+" of 6 stages marked mastered · "+entries.length+" stages have saved records.";
+        [...fdeCards.children].forEach((card,i)=>{
+          const item=byStage.get(i+1); const select=card.querySelector("select"); const area=card.querySelector("textarea");
+          if(item){select.value=item.status;area.value=item.evidence||"";}
+          else {select.value="not-started";}
+          const priorComplete=i===0||Array.from({length:i},(_,j)=>byStage.get(j+1)).every(x=>x?.status==="mastered");
+          select.querySelector('option[value="mastered"]').disabled=!priorComplete;
+          card.querySelector("button").disabled=!priorComplete;
+          const gate=card.querySelector(".sl-fde-result");
+          gate.textContent=priorComplete?"Prerequisite gate: open.":"Prerequisite gate: complete and evidence the previous stage first.";
+        });
+      }
+      ctx.call("fde-progress:get").then(renderFdeProgress).catch(error=>{fdeProgress.textContent="Progress storage unavailable: "+String(error?.message||error);});
       const cross=el("section","sl-cross");
       cross.append(el("h2","","Interdisciplinary connections"),el("p","","Geopolitics + economics + logistics: strategic dependencies and trade. Psychology + philosophy + influence: belief, reasoning and persuasion. Healthcare data + business: quality, productivity and operating decisions. History + politics: institutions, legitimacy and succession. Screenwriting + cinematography + psychology: character, image and audience response. Mechanistic interpretability + AI safety + governance: internal evidence, behavioural tests and accountable deployment."));
       const reference=el("section","sl-reference");
@@ -149,7 +201,7 @@ export function activate(ctx) {
       const homebrewNote=el("p","sl-publish-note","Homebrewery is linked as an independent specialist tool. LearnHarness does not install, embed, host, sync with or automatically publish to it. Open it separately when a D&D / fantasy page layout is appropriate.");
       router.append(homebrewNote);
       publish.append(router);
-      root.append(intro,search,list,cross,reference,publish);
+      root.append(intro,search,list,fdeSection,cross,reference,publish);
       container.append(root);
       render();
       return () => { root.remove(); };
