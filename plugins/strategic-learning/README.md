@@ -53,3 +53,9 @@ Install Lastbook separately from its official project and complete its first-run
 - Healthcare data exercises use synthetic or properly de-identified examples. Do not upload identifiable patient records.
 - The plugin does not claim mastery from exposure or graph presence; learners must demonstrate retention and transfer.
 - This plugin is trusted local code, like all LearnHarness plugins. Review source before enabling.
+
+## Universal publishing workflow
+
+The curriculum view also includes a reusable publishing workflow for turning learning and project work into structured Markdown artifacts. It provides artifact patterns for research/strategy briefs, business operating documents, healthcare/data reports, SOPs/field manuals, film development packs and learning dossiers, plus a copyable prompt that emphasizes audience, evidence, assumptions, limitations and next steps.
+
+This is a **workflow layer**, not a universal document renderer. Choose the final format based on the artifact: Markdown for editable source, PDF/DOCX for formal reports, spreadsheets for tabular analysis, slides for presentations, and screenplay-specific formatting for scripts. Homebrewery is treated as an optional specialist tool for D&D/fantasy-style pages; it is not the default publishing engine for every project and is not integrated or auto-published by this plugin.

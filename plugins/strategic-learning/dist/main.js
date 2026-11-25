@@ -88,7 +88,37 @@ export function activate(ctx) {
       reference.append(refPrompt,refCopy);
       const repoLink=el("p","sl-reference-link","Lastbook project: github.com/Immortal-Protocols/lastbook · lastbook.org");
       reference.append(repoLink);
-      root.append(intro,search,list,cross,reference);
+      const publish=el("section","sl-publish");
+      publish.append(
+        el("h2","","Universal publishing workflow"),
+        el("p","","Turn what you learn or build into a usable artifact—not just notes. Use the same source-first workflow across your projects, then choose a format that fits the audience and job.")
+      );
+      const formats=el("div","sl-publish-grid");
+      const artifacts=[
+        ["Research & strategy brief","Question, thesis, evidence, competing explanations, implications, uncertainties, sources."],
+        ["Business operating document","Objective, customer, process, owner, inputs, KPI, cost, risks, next action."],
+        ["Healthcare / data report","Purpose, dataset and provenance, methods, findings, limitations, privacy, decision."],
+        ["SOP / field manual","Scope, prerequisites, numbered procedure, decision points, exceptions, checklist."],
+        ["Film development pack","Logline, theme, characters, beat sheet, screenplay scenes, visual approach, production notes."],
+        ["Learning dossier","Core concept, mental models, source notes, worked example, retrieval questions, application."]
+      ];
+      artifacts.forEach(([name,description])=>{
+        const item=el("article","sl-publish-card");
+        item.append(el("h3","",name),el("p","",description));
+        formats.append(item);
+      });
+      publish.append(formats);
+      const pubPrompt=el("p","sl-publish-prompt","Create a publication-ready Markdown artifact for my project. First identify its intended reader and decision/use. Use a clear title, executive summary when appropriate, descriptive headings, tables only when useful, explicit assumptions, evidence and source notes, limitations, and concrete next steps. Keep facts separate from interpretation; never fabricate data, citations, approvals or results. Make it editable and reusable. Provide the complete Markdown source, then recommend a suitable export format (PDF, DOCX, spreadsheet, presentation or screenplay format) only if it serves the artifact.");
+      const pubCopy=el("button","sl-copy","Copy universal publishing prompt");
+      pubCopy.type="button";
+      pubCopy.addEventListener("click",async()=>{
+        try { await navigator.clipboard.writeText(pubPrompt.textContent); pubCopy.textContent="Copied"; }
+        catch { pubCopy.textContent="Select and copy the prompt"; }
+      },{signal});
+      publish.append(pubPrompt,pubCopy);
+      const homebrew=el("p","sl-publish-note","Homebrewery is a specialized Markdown-to-styled-page tool for D&D / fantasy sourcebook presentation. Use it when that visual language fits; for business, healthcare, research or operations, use clean project-appropriate document templates instead. This plugin does not embed or automatically publish to Homebrewery.");
+      publish.append(homebrew);
+      root.append(intro,search,list,cross,reference,publish);
       container.append(root);
       render();
       return () => { root.remove(); };
