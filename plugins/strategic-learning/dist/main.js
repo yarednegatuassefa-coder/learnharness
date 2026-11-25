@@ -56,7 +56,7 @@ export function activate(ctx) {
           details.append(summary,stages,project);
           const prompt=el("div","sl-prompt");
           prompt.append(el("span","sl-prompt-label","Start a session with this goal"));
-          const quote=el("p","sl-prompt-text",`Diagnose my current understanding of ${domain.name}. My goal: ${domain.goal} Build a prerequisite-aware learning path, teach me one reasoning step at a time, and assess transfer through unfamiliar cases.`);
+          const quote=el("p","sl-prompt-text",`Diagnose my current understanding of ${domain.name}. My goal: ${domain.goal} Build a prerequisite-aware learning path, teach me one reasoning step at a time, and assess transfer through unfamiliar cases. Use Lastbook as my separate offline reference: tell me what keyword or topic to search there; when I return with a source title and page number or video timestamp, use that source explicitly. Do not pretend you can browse my local Lastbook library or invent citations.`);
           const copy=el("button","sl-copy","Copy starter prompt");
           copy.type="button";
           copy.addEventListener("click",async()=>{
@@ -70,7 +70,25 @@ export function activate(ctx) {
       search.addEventListener("input",()=>render(search.value),{signal});
       const cross=el("section","sl-cross");
       cross.append(el("h2","","Interdisciplinary connections"),el("p","","Geopolitics + economics + logistics: strategic dependencies and trade. Psychology + philosophy + influence: belief, reasoning and persuasion. Healthcare data + business: quality, productivity and operating decisions. History + politics: institutions, legitimacy and succession. Screenwriting + cinematography + psychology: character, image and audience response."));
-      root.append(intro,search,list,cross);
+      const reference=el("section","sl-reference");
+      reference.append(
+        el("h2","","Lastbook · offline reference companion"),
+        el("p","","LearnHarness and Lastbook remain separate desktop apps. This companion workflow connects your study process without network access, an account, or automatic access to your local library."),
+        el("ol","sl-reference-steps")
+      );
+      const steps=reference.querySelector("ol");
+      ["LearnHarness diagnoses or teaches one concept.","Search the same concept in Lastbook’s local library; open a relevant manual, encyclopedia page or video.","Bring the source title plus exact page number or video timestamp back into your LearnHarness session.","LearnHarness explains the evidence, checks your reasoning and tests transfer."].forEach(s=>steps.append(el("li","",s)));
+      const refPrompt=el("p","sl-reference-prompt","Copy this instruction into a lesson: ‘Use Lastbook as an offline source companion. Give me search terms; wait for me to provide the source title and page/timestamp. Cite only sources I provide, and distinguish source evidence from your own explanation.’");
+      const refCopy=el("button","sl-copy","Copy Lastbook workflow");
+      refCopy.type="button";
+      refCopy.addEventListener("click",async()=>{
+        try { await navigator.clipboard.writeText(refPrompt.textContent); refCopy.textContent="Copied"; }
+        catch { refCopy.textContent="Select and copy the instruction"; }
+      },{signal});
+      reference.append(refPrompt,refCopy);
+      const repoLink=el("p","sl-reference-link","Lastbook project: github.com/Immortal-Protocols/lastbook · lastbook.org");
+      reference.append(repoLink);
+      root.append(intro,search,list,cross,reference);
       container.append(root);
       render();
       return () => { root.remove(); };
