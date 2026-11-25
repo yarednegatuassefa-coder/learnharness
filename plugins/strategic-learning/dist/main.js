@@ -39,7 +39,7 @@ export function activate(ctx) {
       });
       intro.append(stats);
       const search = el("input","sl-search");
-      search.type="search"; search.placeholder="Find a discipline…"; search.setAttribute("aria-label","Find a discipline");
+      search.type="search"; search.placeholder="Find a discipline or pathway…"; search.setAttribute("aria-label","Find a discipline or pathway");
       const list = el("div","sl-grid");
       const render = (filter="") => {
         list.replaceChildren();
