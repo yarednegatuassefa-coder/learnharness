@@ -2,9 +2,9 @@
   "apiVersion": 1,
   "id": "strategic-learning",
   "name": "Strategic Learning Programme",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "minAppVersion": "0.7.0",
-  "description": "An integrated twelve-domain curriculum with diagnostic, adaptive teaching and interdisciplinary learning guidance.",
+  "description": "An integrated twelve-domain curriculum plus an assessed Forward Deployed Engineer career pathway.",
   "main": "main.js",
   "backend": "backend.cjs",
   "styles": "styles.css"
