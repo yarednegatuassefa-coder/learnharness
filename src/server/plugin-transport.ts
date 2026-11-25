@@ -1,5 +1,6 @@
 import { isPluginHostError } from "./plugin-host.ts";
 import { apiRequestRefusal } from "./desktop-access.ts";
+import { ownerSessionValid, ownerRequestOriginAllowed } from "./owner-auth.ts";
 import type { PluginFrontendContext, PluginInfo } from "../core/plugins.ts";
 
 /** Thin HTTP adapter, separately injectable so its tests never boot plugins. */
@@ -64,6 +65,8 @@ export function createPluginTransport(deps: { getHost(): Promise<PluginTransport
  * work, including unsupported methods and framework-style OPTIONS responses. */
 export function createPluginDocumentRoute(transport: Pick<ReturnType<typeof createPluginTransport>, "convertDocument">) {
 	const refusal = (request: Request) => {
+		if (process.env.LH_HOSTED_OWNER_AUTH === "1" && !ownerSessionValid(request.headers.get("cookie"))) return "Authentication required.";
+		if (process.env.LH_HOSTED_OWNER_AUTH === "1" && !ownerRequestOriginAllowed(request) && !["GET", "HEAD", "OPTIONS"].includes(request.method.toUpperCase())) return "Cross-origin request refused.";
 		const error = apiRequestRefusal(request);
 		return error ? json({ error }, 403) : undefined;
 	};
