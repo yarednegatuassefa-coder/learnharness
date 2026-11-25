@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 // Railway and other hosted Node runtimes provide PORT at runtime.
 // Keep the normal desktop/local start command unchanged.
 const port = process.env.PORT || "3000";
-if (!/^\\d+$/.test(port) || Number(port) < 1 || Number(port) > 65535) {
+if (!/^[0-9]+$/.test(port) || Number(port) < 1 || Number(port) > 65535) {
 	console.error(`[hosted-start] Invalid PORT: ${port}`);
 	process.exit(1);
 }
