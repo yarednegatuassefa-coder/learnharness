@@ -39,7 +39,7 @@ it("signs expiring owner sessions and rejects tampering, expiry and absent cooki
     assert.match(cookie, /SameSite=Strict/);
     assert.equal(ownerSessionValid(cookie, now), true);
     assert.equal(ownerSessionValid(cookie, now + session.maxAge * 1000 + 1000), false);
-    assert.equal(ownerSessionValid(cookie.replace(/.$/, "x"), now), false);
+    assert.equal(ownerSessionValid(cookie.replace(session.token, session.token.slice(0, -1) + "x"), now), false);
     assert.equal(ownerSessionValid(null, now), false);
   } finally { restore(); }
 });
