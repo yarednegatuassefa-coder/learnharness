@@ -17,7 +17,7 @@ Use `npm run build` followed by `npm run start:hosted`. The hosted launcher fail
 - `LH_AUTH_FILE`: exactly `<LH_DATA_DIR>/auth.json`.
 - `PORT`: supplied by the hosting platform; defaults to 3000 for local smoke tests.
 
-The login password and session signing secret are environment secrets. Never commit them, place them in a Docker build argument, or expose them to client-side variables. The owner session is a 12-hour HMAC-signed cookie with Secure, HttpOnly and SameSite=Strict attributes. Password login is rate-limited in-process; keep one service instance.
+The login password and session signing secret are environment secrets. Never commit them, place them in a Docker build argument, or expose them to client-side variables. The owner session is a 12-hour HMAC-signed cookie with Secure, HttpOnly and SameSite=Strict attributes. Password login is rate-limited per client IP in-process; the reverse proxy must overwrite the client-IP header rather than trust a client-supplied value. Keep one service instance, and configure edge-level rate limiting as well.
 
 The normal `npm start` command remains unchanged for desktop/local operation.
 
@@ -47,8 +47,8 @@ Read-only prompts and application assets remain in the application bundle. Impor
 2. **Single instance:** use exactly one service replica. Filesystem stores, job admission and process-local coordination are not distributed.
 3. **Storage validation:** mount the durable volume, verify every mutable path resolves beneath it, and test data and credential persistence across restart and redeploy.
 4. **Origin protection:** confirm the service's provider URL is not bypassing any intended network access policy. Application auth remains the primary gate, including on the provider's direct domain.
-5. **Operations:** configure health checks, bounded request sizes/timeouts, backups, log redaction, rate limits, and a documented restore test.
-6. **Build and test:** run lint, typecheck, unit tests, production build, and authenticated/unauthenticated route smoke tests before merging or deploying.
+5. **Operations:** configure health checks, bounded request sizes/timeouts, backups, log redaction, edge-level rate limits, and a documented restore test. The login endpoint rejects non-JSON requests and caps the streamed body at 8 KiB.
+6. **Build and test:** run lint, typecheck, unit tests, production build, and authenticated/unauthenticated route smoke tests before merging or deploying. The CI workflow now also triggers on pushes to this preparation branch; if no checks appear, enable GitHub Actions for this fork in repository Settings → Actions.
 
 ## Deployment gate
 
