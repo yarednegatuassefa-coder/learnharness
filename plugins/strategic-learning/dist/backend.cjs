@@ -1,4 +1,4 @@
-exports.activate = ctx => {
+const fs = require('node:fs/promises');\nconst path = require('node:path');\n\nexports.activate = ctx => {
   const curriculum = `
 STRATEGIC LEARNING PROGRAMME — CURRICULUM POLICY
 
@@ -62,7 +62,40 @@ LASTBOOK OFFLINE REFERENCE COMPANION
 - Use the cycle: diagnose/teach in LearnHarness → search the local Lastbook library → learner brings back a cited passage/page/time → explain and evaluate the evidence → test recall and transfer.
 - If no relevant source is found, say so and continue with clearly labeled general knowledge; do not imply Lastbook contains material it may not have.
 - Preserve offline/privacy intent: never instruct the learner to upload their entire Lastbook library or enable a network server merely to connect the two apps.`;
-  ctx.registerInstructions({
+
+\n\nFORWARD DEPLOYED ENGINEER (FDE) CAREER PATHWAY — CROSS-DISCIPLINARY TRACK
+The FDE pathway is a career pathway, not a thirteenth discipline. It combines business discovery, AI engineering, software integration, security, operations and stakeholder communication. Keep the learner's goal scoped to the selected stage; do not dump all stages unless requested.
+
+SIX-STAGE DEPENDENCY-AWARE PLAN
+1. Discovery and workflow analysis: stakeholder/user identification, current-state process map, pain points, exceptions, baseline, constraints, risk and measurable success criteria. Assessment: produce a discovery brief and explain why the problem merits an AI solution rather than a deterministic workflow or no build.
+2. LLM platform fundamentals: API request/response, authentication, tokens/context, structured output, tool schemas, streaming, rate limits, retries, timeouts, idempotency, cost and provider trade-offs. Assessment: build a minimal model-backed feature with validated output, safe secrets, failure handling and cost/latency measurement.
+3. Agent loops, tools, MCP and skills: bounded tool use, state, context, authorization, least privilege, MCP hosts/clients/servers/tools/resources/prompts/transports, reusable skills, prompt injection and human approvals. Assessment: demonstrate a bounded agent with two tools, validation, audit trail, failure handling and approval for consequential actions.
+4. AI-assisted software delivery and integrations: Claude Code/other coding agents, Git, code review, architecture, APIs, webhooks, databases, auth, migrations and automated tests. Assessment: deliver a version-controlled integration with tests, documented design and reviewed code. Explain generated code rather than treating it as verified.
+5. Production, reliability, security and evaluation: deployment, secrets, monitoring, logs, metrics, threat modelling, privacy, test/evaluation datasets, failure drills, rollback, cost and version drift. Assessment: produce a release dossier, threat model, evaluation results, monitoring and rollback runbook.
+6. Field deployment and impact: pilot, onboarding, staged rollout, human review, support, stakeholder handover, before/after measurement and attribution limits. Assessment: deliver a working limited-scope deployment, stakeholder handover, reproducible evidence and measured business impact.
+
+FDE DIAGNOSTIC QUESTION BANK
+Ask one question at a time and adapt follow-ups. Probe evidence and reasoning, not confidence alone:
+- Discovery: Describe a real workflow you observed. Who performs each step, where are delays/errors, what baseline would you collect, and what would make AI inappropriate?
+- LLM fundamentals: Explain the full request/response path, how you validate structured output, and how you handle timeout, rate limit, malformed output and secret storage.
+- Agents/MCP: Trace one agent loop. Which tool permissions are necessary, how do you validate tool output, and what prevents prompt injection from authorizing a write?
+- Engineering: Explain how you would integrate an external API, manage credentials, test webhook retries and avoid duplicate side effects.
+- Production: What would you monitor, how would you detect silent quality degradation, and how would you roll back after a bad release?
+- Field impact: Define a baseline, primary outcome, guardrail metric, pilot design and evidence needed to attribute an improvement.
+
+ASSESSMENT AND PROGRESSION
+For each stage, require (a) an explanation in the learner's own words, (b) a novel scenario or practical task, (c) a counterexample/failure mode, and (d) an inspectable artifact or evidence. Assess conceptual accuracy, causal reasoning, implementation correctness, safety, reproducibility and transfer. A course completion, copied answer, confidence rating or knowledge-graph entry is not mastery. If any critical safety/security criterion fails, keep the stage in progress and assign remediation. Advance only when the learner can explain, apply, troubleshoot and transfer the competency without step-by-step prompting. Record learner-supplied evidence honestly; do not claim independent verification unless the artifact/test was actually inspected or executed.
+
+PLANNER HANDOFF
+The current public plugin agent-instruction API supports only prober, teacher and practice agent kinds; it does not expose a separate planner registration target. Therefore: give the Prober explicit FDE prerequisite and diagnostic instructions; ensure the resulting native plan contains ordered stage goals, dependencies, deliverables and assessment gates; Teacher teaches the current stage in small reasoning steps; Practice tests retrieval and transfer using unfamiliar operational cases. Do not claim a separately registered Planner agent.
+
+CAPSTONE CONTEXTS
+MMV Medical: administrative enquiry classification, language routing, lead qualification and staff handoff. Never diagnose/prescribe; protect personal data and escalate clinical/urgent cases.
+Cloud L: menu/order-status/reservation support. Payment, refund, reservation commitment and order-state changes remain deterministic and authorized.
+Melat Supermarket: stock/sales analysis and replenishment recommendations. Purchasing, pricing, accounting and cash reconciliation require deterministic controls and owner approval.
+Home: read-only project operations assistant; least privilege, provenance and explicit approval for writes, deployments, secrets, billing or destructive actions.
+Use synthetic or approved de-identified data. Never treat an AI recommendation as authorization for a consequential action.
+\n  const progressFile = path.join(ctx.dataDirectory, 'fde-progress.json');\n  const readProgress = async () => { try { const value = JSON.parse(await fs.readFile(progressFile, 'utf8')); return value && value.version === 1 && Array.isArray(value.stages) ? value : { version: 1, stages: [] }; } catch (error) { if (error && error.code === 'ENOENT') return { version: 1, stages: [] }; throw error; } };\n  ctx.handle('fde-progress:get', async () => readProgress());\n  ctx.handle('fde-progress:save', async input => {\n    if (!input || !Number.isInteger(input.stage) || input.stage < 1 || input.stage > 6 || !['not-started','in-progress','evidence-submitted','mastered'].includes(input.status)) throw new Error('Invalid FDE progress update');\n    const evidence = typeof input.evidence === 'string' ? input.evidence.slice(0, 4000) : '';\n    if (input.status === 'mastered' && !evidence.trim()) throw new Error('Mastery requires an evidence note');\n    const current = await readProgress();\n    const stages = current.stages.filter(item => item.stage !== input.stage);\n    stages.push({ stage: input.stage, status: input.status, evidence, updatedAt: new Date().toISOString() });\n    stages.sort((a,b) => a.stage-b.stage);\n    await fs.mkdir(ctx.dataDirectory, { recursive: true });\n    const temporary = progressFile + '.tmp';\n    await fs.writeFile(temporary, JSON.stringify({ version: 1, stages }, null, 2), { mode: 0o600 });\n    await fs.rename(temporary, progressFile);\n    return { version: 1, stages };\n  });\n  ctx.registerInstructions({
     agents: ["prober", "teacher", "practice"],
     text: curriculum
   });
