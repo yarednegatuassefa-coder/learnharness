@@ -2,11 +2,11 @@
 
 **Programme:** Strategic Learning Programme  
 **Discipline:** 12 of 12  
-**Status:** Curriculum specification  
+**Status:** Integrated programme discipline  
 **Prerequisites:** AI foundations and basic machine-learning concepts; no advanced mathematics or coding assumed at entry  
 **Learning objective:** Build the ability to reason about model internals, evaluate safety claims, and conduct evidence-based audits of AI systems.
 
-This discipline is part of the integrated programme, not a standalone collection of videos. Learn it through diagnosis, dependency-aware teaching, Socratic questioning, retrieval practice, practical investigations, and interdisciplinary projects. Advance by demonstrated understanding and transfer, not by completing material.
+This is **discipline 12** in the existing Strategic Learning Programme—not a separate course. It extends the AI Engineering Learning Path: AI engineering develops the ability to build and operate AI systems; this discipline develops the ability to inspect their internal mechanisms, test safety claims, and audit their behaviour. Learn it through LearnHarness's existing diagnosis, dependency-aware planning, stepwise teaching, checks, retrieval practice, and practical investigations. The learner enters through the existing programme and advances by demonstrated understanding and transfer, not by completing material.
 
 ## Why this discipline matters
 
@@ -141,6 +141,40 @@ Progress through these projects in order:
 - **Political science and strategic studies:** threat modelling, incentives, institutional oversight, and the gap between declared intent and demonstrated capability.
 - **Business and governance:** operational risk, accountability, auditability, and deployment decisions.
 - **Supply chain and logistics:** provenance, dependency tracking, traceability, and failure propagation across complex systems.
+
+## Applied project connections
+
+These are integrated applications of the same discipline, not four separate courses. Use synthetic, public, or properly de-identified data. Never expose customer, patient, employee, financial, or other sensitive records to an external model without an approved lawful basis and explicit project controls.
+
+### AI Engineering Learning Path
+- Inspect a small, transparent model before relying on larger opaque systems.
+- Compare behavioural evaluations with internal evidence; document where they agree and diverge.
+- Build a reproducible evaluation harness with versioned prompts, datasets, model identifiers, baselines, controls, and regression tests.
+- Evaluate safety interventions as hypotheses to test—not as guarantees.
+
+### Cloud L
+- Audit AI-assisted order classification, customer-support drafting, or menu recommendation for incorrect outputs, prompt injection, and unsafe escalation.
+- Test whether the system follows explicit business rules under ambiguous, adversarial, and out-of-distribution inputs.
+- Keep payment authorization, refunds, order state transitions, and other deterministic or consequential actions behind validated application logic and human approval where required.
+- Use synthetic order/customer records in exercises; never use live customer messages as an unapproved training or evaluation corpus.
+
+### Melat Supermarket
+- Audit demand-forecasting, product categorization, and promotion recommendations for bias, drift, and unsupported confidence.
+- Compare model predictions with simple baselines and actual sales outcomes; report stockout and overstock costs separately.
+- Keep purchasing, pricing, and cash reconciliation under deterministic controls and owner approval. An AI recommendation is not an authorization to transact.
+- Use synthetic or aggregated sales data unless access and privacy controls explicitly permit more.
+
+### MMV Medical
+- Audit administrative AI tools for hallucinated provider details, misleading claims, unsafe medical advice, and inappropriate disclosure.
+- Test escalation to qualified staff when a request becomes clinical, urgent, ambiguous, or unsupported.
+- Evaluate multilingual outputs for meaning preservation, not merely fluency.
+- Use synthetic or properly de-identified cases. This discipline does not authorize automated diagnosis, treatment decisions, or patient-specific clinical promises.
+
+### Home and portfolio systems
+- Audit AI agents that plan, research, summarize, or operate workflows across projects.
+- Test permission boundaries, tool selection, instruction hierarchy, data minimization, failure recovery, and evidence provenance.
+- Verify that agents request approval before payments, purchases, publication, deletion, access changes, or other consequential actions.
+- Maintain a versioned audit dossier and regression suite for each material AI workflow.
 
 ## Diagnostic questions
 
