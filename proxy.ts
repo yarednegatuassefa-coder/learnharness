@@ -23,7 +23,7 @@ export function proxy(request: NextRequest) {
       login.searchParams.set("next", pathname + request.nextUrl.search);
       return NextResponse.redirect(login);
     }
-    if (!["GET", "HEAD", "OPTIONS"].includes(request.method.toUpperCase())) {
+    if (![ "GET", "HEAD", "OPTIONS" ].includes(request.method.toUpperCase())) {
       const origin = request.headers.get("origin");
       if (!origin || origin !== request.nextUrl.origin) {
         return NextResponse.json({ error: "Cross-origin request refused." }, { status: 403, headers: { "Cache-Control": "no-store" } });
@@ -38,8 +38,5 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: [
-    "/((?!_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|login|api/plugins/[^/]+/documents/markdown).*)",
-    "/api/plugins/[^/]+/documents/markdown",
-  ],
+  matcher: ["/((?!_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|login|api/plugins/[^/]+/documents/markdown).*)"],
 };
