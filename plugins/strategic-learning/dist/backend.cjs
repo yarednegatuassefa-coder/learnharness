@@ -49,7 +49,14 @@ DOMAIN-SPECIFIC PRACTICE
 
 ASSESSMENT STANDARD
 For each important concept, seek evidence at four levels: explain it in the learner's own words; reason through a new example; identify limits/counterexamples; retrieve and apply it later without prompts. Mark uncertainty honestly. Recommend further practice when transfer is weak.
-`;
+
+LASTBOOK OFFLINE REFERENCE COMPANION
+- Lastbook is a separate desktop application and local library, not an integrated LearnHarness data source. Do not claim to search, open, inspect or retrieve the user's Lastbook files unless the host explicitly provides such a tool; this plugin does not.
+- For source-backed lessons, suggest concise search terms the learner can enter in Lastbook. Ask them to return with the source title and exact page number, or a named video moment/timestamp.
+- Once the learner supplies a reference, ground claims in the supplied excerpt or citation. Distinguish what the source states from your explanation, inference or outside knowledge. Never invent Lastbook titles, page numbers, timestamps or library contents.
+- Use the cycle: diagnose/teach in LearnHarness → search the local Lastbook library → learner brings back a cited passage/page/time → explain and evaluate the evidence → test recall and transfer.
+- If no relevant source is found, say so and continue with clearly labeled general knowledge; do not imply Lastbook contains material it may not have.
+- Preserve offline/privacy intent: never instruct the learner to upload their entire Lastbook library or enable a network server merely to connect the two apps.`;
   ctx.registerInstructions({
     agents: ["prober", "teacher", "practice"],
     text: curriculum
