@@ -39,6 +39,14 @@ The plugin instructs the native agents to diagnose prerequisites, build a staged
 
 See `dist/main.js` for the navigable domain catalogue and `dist/backend.cjs` for the additive teaching policy.
 
+## Lastbook offline reference companion
+
+This plugin includes a manual source workflow for [Lastbook](https://github.com/Immortal-Protocols/lastbook), an offline desktop reference library. It does **not** embed Lastbook, access its local files, or transfer data between the applications.
+
+Use the loop: LearnHarness teaches or diagnoses a concept → search the concept in Lastbook → bring back the source title and exact page number or video timestamp → LearnHarness explains the source and tests your understanding. The plugin's teaching instructions prohibit invented Lastbook sources or page citations.
+
+Install Lastbook separately from its official project and complete its first-run library setup while online. Once its library is downloaded, Lastbook can be used offline. Both applications remain independent.
+
 ## Safety and scope
 
 - Propaganda and influence content is framed for analysis, media literacy, ethical persuasion and lawful strategic communication—not covert manipulation, targeted deception or coercive exploitation.
