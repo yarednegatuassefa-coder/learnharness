@@ -2,37 +2,54 @@
 
 ## Current status
 
-LearnHarness is designed around a trusted, single-user desktop/local server. Its Next.js server owns agent execution, background workers, conversations, settings, jobs, graph records, and filesystem-backed credentials. The current application does **not** provide a complete multi-user authentication and tenant-isolation boundary.
+LearnHarness remains a trusted, single-owner application, not a multi-user tenant-isolated service. The hosted branch adds an application-level owner password gate, but deployment remains blocked pending build/test verification, plugin policy, storage validation, and infrastructure setup.
 
-This repository change only prepares a hosted process entry point. It does not make the application safe to expose publicly and does not create a Railway deployment.
+No Railway project, service, volume, domain, or deployment has been created.
 
-## Hosted process entry point
+## Hosted process and required environment
 
-Use `npm run start:hosted` as the service start command after building the application. The launcher reads the runtime `PORT` (defaults to 3000 for local smoke testing) and binds Next.js to `0.0.0.0`. The existing `npm start` remains unchanged for the local/desktop workflow.
+Use `npm run build` followed by `npm run start:hosted`. The hosted launcher fails closed unless all of the following are configured:
 
-The service must run as one instance unless every store and coordination mechanism is migrated to shared, concurrency-safe infrastructure. The current filesystem stores and process-local admission/liveness controls are not a distributed coordination system.
+- `LH_HOSTED_OWNER_AUTH=1`
+- `LH_OWNER_PASSWORD`: a unique password with at least 16 characters.
+- `LH_OWNER_SESSION_SECRET`: at least 32 random characters; use a cryptographically random value, not a memorable phrase.
+- `LH_DATA_DIR`: absolute path on the persistent volume.
+- `LH_AUTH_FILE`: exactly `<LH_DATA_DIR>/auth.json`.
+- `PORT`: supplied by the hosting platform; defaults to 3000 for local smoke tests.
 
-## Mandatory blockers before any public URL
+The login password and session signing secret are environment secrets. Never commit them, place them in a Docker build argument, or expose them to client-side variables. The owner session is a 12-hour HMAC-signed cookie with Secure, HttpOnly and SameSite=Strict attributes. Password login is rate-limited in-process; keep one service instance.
 
-1. **Owner authentication:** put an identity-aware access gateway in front of the service and enforce origin protection so the Railway service domain cannot bypass that gateway. Validate all page, API, stream, upload, download, and websocket-like paths. Do not trust a client-supplied identity header.
-2. **Authorization:** enforce owner-only access server-side for every route that reads or mutates data. A gateway alone is insufficient if the origin remains directly reachable.
-3. **Persistent storage:** identify every runtime data path and credential file, mount durable storage at the correct location, and verify permissions and restart persistence. Do not assume that mounting a volume at `/app/data` covers all stores.
-4. **Secrets:** inject provider keys only through protected runtime variables or an encrypted owner-controlled store. Never commit credentials, copy local `data/`, `auth.json`, or `.env` files into an image or build artifact.
-5. **Plugin execution:** community and user-installed plugins execute trusted Node.js code in the current architecture. Do not enable untrusted plugin installation or expose plugin-management APIs until an isolation/allowlist policy is implemented and tested.
-6. **Single-instance operation:** enforce one service replica and test worker recovery, concurrent requests, filesystem locking, and restart behaviour. Current queues/liveness coordination are process-local and JSON-file based.
-7. **Operational controls:** configure health checks, bounded request sizes/timeouts, backups, log redaction, rate limits, and a documented restore test.
+The normal `npm start` command remains unchanged for desktop/local operation.
+
+## Authentication boundary
+
+The Next.js proxy protects application pages and API routes. API requests without a valid owner session receive 401; page requests redirect to /login. State-changing requests require a same-origin Origin header. The login/logout endpoint validates its Origin. The streamed plugin-document upload route is deliberately excluded from proxy body cloning and performs the owner-session and origin checks itself before reading the request or initializing plugin services.
+
+This is application-level owner authentication, not multi-user identity, account recovery, MFA, or a defense against a compromised hosting account. Protect the hosting dashboard and GitHub account with MFA.
+
+## Persistent storage map
+
+Set `LH_DATA_DIR` to the mounted persistent volume directory. The repository's `config.ts` resolves mutable state beneath it:
+
+- `chats/` — conversation transcripts.
+- `graph/` — graph ledgers, source records and graph metadata.
+- `settings.json` — application preferences.
+- `themes/` — imported themes.
+- `prompts/` — prompt overrides.
+- `plugins/` and `core-plugin-data/` — plugin state and data.
+- `auth.json` — provider credentials via `LH_AUTH_FILE`.
+
+Read-only prompts and application assets remain in the application bundle. Imported notes may refer to paths on the original computer; those source files do not automatically transfer to the hosted service. Before migrating real data, inventory all additional runtime file paths, validate file permissions, and test restore/restart behaviour.
+
+## Remaining mandatory blockers
+
+1. **Plugin execution:** community and user-installed plugins execute trusted Node.js code in the current process. Disable community plugin installation and plugin-management mutation routes for public hosting, or implement a tested allowlist/isolation policy. Authentication does not sandbox plugins.
+2. **Single instance:** use exactly one service replica. Filesystem stores, job admission and process-local coordination are not distributed.
+3. **Storage validation:** mount the durable volume, verify every mutable path resolves beneath it, and test data and credential persistence across restart and redeploy.
+4. **Origin protection:** confirm the service's provider URL is not bypassing any intended network access policy. Application auth remains the primary gate, including on the provider's direct domain.
+5. **Operations:** configure health checks, bounded request sizes/timeouts, backups, log redaction, rate limits, and a documented restore test.
+6. **Build and test:** run lint, typecheck, unit tests, production build, and authenticated/unauthenticated route smoke tests before merging or deploying.
 
 ## Deployment gate
 
-Do not create a public domain or accept a production deployment until the authentication/origin gate and persistent-storage mapping have been implemented and independently tested. A private project setting or an obscure URL is not authentication. Do not upgrade a hosting plan or create billable resources without the owner's separate approval.
-
-## Verification required after infrastructure becomes available
-
-- Unauthenticated browser requests and direct API requests are rejected.
-- Authenticated owner requests work for every required route.
-- Direct access to the provider's default domain cannot bypass the access gateway.
-- Data and settings survive process restart and redeployment.
-- Provider credentials are not present in Git history, build output, logs, or client bundles.
-- Plugin installation is disabled or restricted to explicitly trusted code.
-- The service remains single-instance and background work recovers safely after restart.
-- Backup restoration is demonstrated before real learning records are stored.
+Do not create a public domain or accept a production deployment until the remaining blockers are implemented and verified. Do not upgrade a hosting plan or create billable resources without the owner's separate approval.
