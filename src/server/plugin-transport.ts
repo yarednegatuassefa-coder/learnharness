@@ -65,8 +65,11 @@ export function createPluginTransport(deps: { getHost(): Promise<PluginTransport
  * work, including unsupported methods and framework-style OPTIONS responses. */
 export function createPluginDocumentRoute(transport: Pick<ReturnType<typeof createPluginTransport>, "convertDocument">) {
 	const refusal = (request: Request) => {
-		if (process.env.LH_HOSTED_OWNER_AUTH === "1" && !ownerSessionValid(request.headers.get("cookie"))) return "Authentication required.";
-		if (process.env.LH_HOSTED_OWNER_AUTH === "1" && !ownerRequestOriginAllowed(request) && !["GET", "HEAD", "OPTIONS"].includes(request.method.toUpperCase())) return "Cross-origin request refused.";
+		if (process.env.LH_HOSTED_OWNER_AUTH === "1") {
+			if (!ownerSessionValid(request.headers.get("cookie"))) return json({ error: "Authentication required." }, 401);
+			if (!["GET", "HEAD", "OPTIONS"].includes(request.method.toUpperCase()) && !ownerRequestOriginAllowed(request)) return json({ error: "Cross-origin request refused." }, 403);
+			return undefined;
+		}
 		const error = apiRequestRefusal(request);
 		return error ? json({ error }, 403) : undefined;
 	};
