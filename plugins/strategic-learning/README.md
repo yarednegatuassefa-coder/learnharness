@@ -1,6 +1,6 @@
 # Strategic Learning Programme
 
-A LearnHarness Community plugin that adds an integrated curriculum across twelve disciplines. It does not replace the native teaching, practice, planning or knowledge-graph systems. It contributes curriculum-aware instructions to the Prober, Teacher and Practice agents and provides a browsable curriculum view.
+A LearnHarness Community plugin that adds an integrated curriculum across twelve disciplines and a cross-disciplinary Forward Deployed Engineer career pathway. It does not replace the native teaching, practice, planning or knowledge-graph systems. It contributes curriculum-aware instructions to the Prober, Teacher and Practice agents and provides a browsable curriculum view.
 
 ## Install
 
@@ -39,9 +39,9 @@ The plugin instructs the native Prober, Teacher and Practice agents to diagnose 
 11. Propaganda, Strategic Communication and Influence
 12. Mechanistic Interpretability, AI Safety and Model Auditing
 
-See `dist/main.js` for the navigable domain catalogue and `dist/backend.cjs` for the additive teaching policy.
+See `dist/main.js` for the navigable domain catalogue and FDE evidence tracker, and `dist/backend.cjs` for additive Prober, Teacher and Practice teaching policy. The FDE tracker stores stage status and evidence notes in plugin-owned local data. Mastery is learner-recorded, not independently verified by the tracker. The current public plugin API exposes instruction targets for Prober, Teacher and Practice only; it does not expose a separate Planner target, so FDE planning requirements are supplied through the Prober's diagnostic and plan specification.
 
-## Lastbook offline reference companion
+## Forward Deployed Engineer pathway\n\nThe catalogue includes a six-stage FDE pathway: discovery; LLM platform fundamentals; agents, tools, MCP and skills; AI-assisted engineering and integrations; production security/reliability/evaluation; and field deployment. Each stage includes a diagnostic prompt, practical assessment and evidence note. Progress is stored under the plugin's data directory and later stages are gated on the previous stage being marked mastered with an evidence note. This is a learner-maintained record, not an automatic grading claim. The pathway reuses existing disciplines and includes capstone contexts for MMV Medical, Cloud L, Melat Supermarket and Home. Anthropic Academy resources are vendor-specific learning inputs, not a hiring qualification.\n\n## Lastbook offline reference companion
 
 This plugin includes a manual source workflow for [Lastbook](https://github.com/Immortal-Protocols/lastbook), an offline desktop reference library. It does **not** embed Lastbook, access its local files, or transfer data between the applications.
 
