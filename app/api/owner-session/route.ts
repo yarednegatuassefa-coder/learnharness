@@ -35,19 +35,26 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Owner authentication is not configured." }, { status: 503 });
   }
   if (!ownerRequestOriginAllowed(request)) return NextResponse.json({ error: "Cross-origin request refused." }, { status: 403 });
-  const bucket = globalThis as typeof globalThis & { __lhLoginAttempts?: { count: number; reset: number } };
+  if (!(request.headers.get("content-type") ?? "").toLowerCase().startsWith("application/json")) {
+    return NextResponse.json({ error: "Expected an application/json login request." }, { status: 415 });
+  }
+  const bucket = globalThis as typeof globalThis & { __lhLoginAttempts?: Map<string, { count: number; reset: number }> };
   const now = Date.now();
-  const current = bucket.__lhLoginAttempts;
+  const clientIp = (request.headers.get("x-real-ip") || request.headers.get("x-forwarded-for")?.split(",").at(-1)?.trim() || "unknown").slice(0, 64);
+  const attempts = bucket.__lhLoginAttempts ?? (bucket.__lhLoginAttempts = new Map());
+  for (const [key, value] of attempts) if (value.reset <= now) attempts.delete(key);
+  let current = attempts.get(clientIp);
   if (current && current.reset > now && current.count >= 8) return NextResponse.json({ error: "Too many attempts. Try again later." }, { status: 429 });
   try {
     const body = await readLoginBody(request);
     if (typeof body?.password !== "string" || !ownerPasswordMatches(body.password)) {
-      const entry = current && current.reset > now ? current : { count: 0, reset: now + 15 * 60_000 };
-      entry.count++;
-      bucket.__lhLoginAttempts = entry;
+      if (!current || current.reset <= now) current = { count: 0, reset: now + 15 * 60_000 };
+      current.count++;
+      if (attempts.size >= 1024 && !attempts.has(clientIp)) attempts.delete(attempts.keys().next().value!);
+      attempts.set(clientIp, current);
       return NextResponse.json({ error: "Incorrect password." }, { status: 401 });
     }
-    delete bucket.__lhLoginAttempts;
+    attempts.delete(clientIp);
     const session = createOwnerSession(now);
     const response = NextResponse.json({ ok: true });
     response.headers.set("Set-Cookie", ownerCookie(session.token, session.maxAge));
