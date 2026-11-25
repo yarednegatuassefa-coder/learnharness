@@ -350,7 +350,9 @@ export function createPluginHost(deps: PluginHostDependencies) {
 	async function discover(state: State): Promise<void> {
 		const installationErrors = deps.installationErrors ?? {};
 		const failed = (id: string) => Object.hasOwn(installationErrors, id);
-		const communityIds = fs.readdirSync(/* turbopackIgnore: true */ directory).filter(id => {
+		// Hosted mode executes only app-owned Core plugins. Community packages are
+		// arbitrary Node.js code in this process and are never discovered/loaded.
+		const communityIds = process.env.LH_HOSTED_OWNER_AUTH === "1" ? [] : fs.readdirSync(/* turbopackIgnore: true */ directory).filter(id => {
 			const stat = fs.lstatSync(path.join(/* turbopackIgnore: true */ directory, id));
 			return stat.isDirectory() || stat.isSymbolicLink();
 		});
