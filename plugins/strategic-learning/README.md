@@ -1,6 +1,6 @@
 # Strategic Learning Programme
 
-A LearnHarness Community plugin that adds an integrated curriculum across eleven disciplines. It does not replace the native teaching, practice, planning or knowledge-graph systems. It contributes curriculum-aware instructions to the Prober, Teacher and Practice agents and provides a browsable curriculum view.
+A LearnHarness Community plugin that adds an integrated curriculum across twelve disciplines. It does not replace the native teaching, practice, planning or knowledge-graph systems. It contributes curriculum-aware instructions to the Prober, Teacher and Practice agents and provides a browsable curriculum view.
 
 ## Install
 
@@ -20,8 +20,9 @@ Start a normal teaching session with a goal such as:
 - "Teach me supply chain management from first principles, with a practical retail distribution case."
 - "Build a healthcare data analysis path using hospital operations and patient-experience examples."
 - "Teach me propaganda and strategic influence, including how to identify and resist manipulation."
+- "Teach me mechanistic interpretability and show me how to audit an AI system's safety claims."
 
-The plugin instructs the native agents to diagnose prerequisites, build a staged plan, teach one reasoning step at a time, and test transfer through unfamiliar cases. Practice sessions are instructed to use retrieval and varied problems. The host knowledge graph remains the durable record.
+The plugin instructs the native Prober, Teacher and Practice agents to diagnose prerequisites, build a staged plan, teach one reasoning step at a time, and test transfer through unfamiliar cases. Discipline 12 connects to the AI Engineering Learning Path and includes applied audits for Cloud L, Melat Supermarket, MMV Medical and Home. Use synthetic or approved de-identified data; consequential actions remain subject to deterministic controls and human approval. Practice sessions are instructed to use retrieval and varied problems. The host knowledge graph remains the durable record.
 
 ## Curriculum domains
 
@@ -36,6 +37,7 @@ The plugin instructs the native agents to diagnose prerequisites, build a staged
 9. Healthcare Data Analysis
 10. Cinematography, Filmmaking and Screenwriting
 11. Propaganda, Strategic Communication and Influence
+12. Mechanistic Interpretability, AI Safety and Model Auditing
 
 See `dist/main.js` for the navigable domain catalogue and `dist/backend.cjs` for the additive teaching policy.
 
