@@ -64,6 +64,10 @@ All three platforms support in-app updates.
 - **External services.** Models run through your configured providers. Model requests send the context needed for the task; web research and dictation also contact external services. Local storage does not mean offline processing.
 - **Inspectable behavior.** System prompts are visible and editable. The app is open source under the AGPL-3.0 license.
 
+## Project operating standard
+
+This repository also maintains a [Universal Project Operating Standard](docs/project-operating-standard.md) for applying reusable workflow specifications, evaluations, quality controls, measurement, failure reporting, and safe automation across projects. Copy the [workflow specification template](docs/templates/workflow-spec.md) and [evaluation case template](docs/templates/evaluation-case.md) when introducing or improving a material workflow.
+
 ## Development and support
 
 ```bash
