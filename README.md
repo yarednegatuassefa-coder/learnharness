@@ -68,6 +68,10 @@ All three platforms support in-app updates.
 
 This repository also maintains a [Universal Project Operating Standard](docs/project-operating-standard.md) for applying reusable workflow specifications, evaluations, quality controls, measurement, failure reporting, and safe automation across projects. Copy the [workflow specification template](docs/templates/workflow-spec.md) and [evaluation case template](docs/templates/evaluation-case.md) when introducing or improving a material workflow.
 
+## Workflow governance
+
+LearnHarness follows the portfolio [Workflow Quality and Evaluation Standard](https://github.com/yarednegatuassefa-coder/home/blob/main/standards/workflow-quality.md). See the [LearnHarness workflow governance plan](docs/workflow-governance.md), [portfolio-wide project operating standard](docs/project-operating-standard.md), and reusable [workflow specification](https://github.com/yarednegatuassefa-coder/home/blob/main/templates/workflow-spec.md) and [evaluation case](https://github.com/yarednegatuassefa-coder/home/blob/main/templates/evaluation-case.md) templates.
+
 ## Development and support
 
 ```bash
