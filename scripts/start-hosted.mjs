@@ -1,4 +1,5 @@
 import { spawn } from "node:child_process";
+import { fileURLToPath } from "node:url";
 
 // Railway and other hosted Node runtimes provide PORT at runtime.
 // Keep the normal desktop/local start command unchanged.
@@ -8,8 +9,8 @@ if (!/^\\d+$/.test(port) || Number(port) < 1 || Number(port) > 65535) {
 	process.exit(1);
 }
 
-const nextBin = new URL("../node_modules/next/dist/bin/next", import.meta.url);
-const child = spawn(process.execPath, [nextBin.pathname, "start", "--hostname", "0.0.0.0", "--port", port], {
+const nextBin = fileURLToPath(new URL("../node_modules/next/dist/bin/next", import.meta.url));
+const child = spawn(process.execPath, [nextBin, "start", "--hostname", "0.0.0.0", "--port", port], {
 	stdio: "inherit",
 	env: process.env,
 });
@@ -19,8 +20,7 @@ child.on("error", (error) => {
 	process.exitCode = 1;
 });
 child.on("exit", (code, signal) => {
-	if (signal) process.kill(process.pid, signal);
-	else process.exitCode = code ?? 1;
+	process.exitCode = signal === "SIGINT" ? 130 : signal === "SIGTERM" ? 143 : code ?? 1;
 });
 
 for (const signal of ["SIGINT", "SIGTERM"]) {
