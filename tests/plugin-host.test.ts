@@ -46,6 +46,19 @@ function fixture(t: TestContext) {
 }
 const status = (expected: number) => (e: unknown) => isPluginHostError(e) && e.status === expected;
 
+
+test("hosted owner mode never discovers or executes community plugin packages", async t => {
+	const previous = process.env.LH_HOSTED_OWNER_AUTH;
+	process.env.LH_HOSTED_OWNER_AUTH = "1";
+	t.after(() => { if (previous === undefined) delete process.env.LH_HOSTED_OWNER_AUTH; else process.env.LH_HOSTED_OWNER_AUTH = previous; });
+	const f = fixture(t);
+	f.plugin("untrusted", {}, "throw new Error('community code must never execute')");
+	await f.host.initialize();
+	assert.deepEqual(f.host.list(), []);
+	assert.equal(f.servicesCreated(), 0);
+	assert.equal(f.host.conflicts().length, 0);
+});
+
 test("host error brand is process-stable, shape-checked and rejects arbitrary numeric status", () => {
 	assert.equal(isPluginHostError(new PluginHostError(404, "missing")), true);
 	class OtherModuleHostError extends Error {
