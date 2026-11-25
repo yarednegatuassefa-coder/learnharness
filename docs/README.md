@@ -23,7 +23,7 @@
 
 ## Curriculum specifications
 
-- [Mechanistic Interpretability, AI Safety and Model Auditing](curriculum/mechanistic-interpretability-ai-safety-model-auditing.md) — the 12th discipline in the integrated Strategic Learning Programme, with six stages, diagnostics, practical investigations, interdisciplinary links, and evidence-based completion criteria.
+- [Mechanistic Interpretability, AI Safety and Model Auditing](curriculum/mechanistic-interpretability-ai-safety-model-auditing.md) — discipline 12 in the integrated Strategic Learning Programme, connected to the AI Engineering Learning Path and applied across Cloud L, Melat Supermarket, MMV Medical, and Home; includes six stages, diagnostics, project investigations, and evidence-based completion criteria.
 
 ## History
 
