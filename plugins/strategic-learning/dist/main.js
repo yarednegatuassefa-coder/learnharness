@@ -9,7 +9,8 @@ const DOMAINS = [
   { id: "philosophy", name: "Philosophy", goal: "Develop rigorous reasoning, a defensible worldview and the ability to evaluate claims.", stages: ["Logic, argument structure and fallacies", "Epistemology, evidence, truth and uncertainty", "Ancient Greek philosophy: Socrates, Plato and Aristotle", "Stoicism: Epictetus, Seneca and Marcus Aurelius", "Political philosophy: Machiavelli, Hobbes and others", "Ethics, existentialism and theories of human nature"], project: "Write and defend an argument about political authority, including its strongest objection." },
   { id: "healthcare-data", name: "Healthcare Data Analysis", goal: "Use reliable data to improve healthcare quality, access, patient experience and operations.", stages: ["Data types, quality, governance and privacy", "Descriptive statistics and visual interpretation", "Study design, sampling and inferential reasoning", "Epidemiology, rates, risk and biostatistics", "Healthcare KPIs, patient flow and quality measurement", "Dashboards, health economics and decision support"], project: "Create a synthetic hospital operations dashboard and explain its limitations." },
   { id: "filmmaking", name: "Cinematography, Filmmaking and Screenwriting", goal: "Develop an idea into a coherent screenplay and a deliberately composed audiovisual story.", stages: ["Story premise, theme, genre and dramatic structure", "Character, motivation, conflict and dialogue", "Screenplay format, scenes and sequence design", "Camera, lenses, exposure, framing and movement", "Lighting, colour, blocking and directing actors", "Editing, sound, production planning and film analysis"], project: "Write and storyboard a 3–5 minute short film with a clear visual point of view." },
-  { id: "influence", name: "Propaganda, Strategic Communication and Influence", goal: "Understand how narratives shape public perception and communicate persuasively while resisting manipulation.", stages: ["Rhetoric, argument, framing and agenda-setting", "Propaganda history and media ecosystems", "Social psychology, persuasion and group behaviour", "Strategic communication, public relations and crisis response", "Disinformation analysis, verification and OSINT", "Information operations, media literacy and ethical influence"], project: "Deconstruct a historical campaign and design a transparent, evidence-based public information campaign." }
+  { id: "influence", name: "Propaganda, Strategic Communication and Influence", goal: "Understand how narratives shape public perception and communicate persuasively while resisting manipulation.", stages: ["Rhetoric, argument, framing and agenda-setting", "Propaganda history and media ecosystems", "Social psychology, persuasion and group behaviour", "Strategic communication, public relations and crisis response", "Disinformation analysis, verification and OSINT", "Information operations, media literacy and ethical influence"], project: "Deconstruct a historical campaign and design a transparent, evidence-based public information campaign." },
+  { id: "mechanistic-interpretability", name: "Mechanistic Interpretability, AI Safety and Model Auditing", goal: "Understand how neural networks represent and process information, test safety claims, and audit AI behaviour with reproducible evidence.", stages: ["Neural-network and transformer foundations: parameters, activations, embeddings, attention and residual streams", "Representations: neurons, polysemanticity, superposition, features, circuits and distributed information", "Mechanistic investigations: attribution, probing, ablation, activation patching and causal interventions", "AI safety: harmful-capability detection, hidden behaviours, backdoors, fine-tuning, refusal and unlearning limits", "Model auditing: baselines, controls, adversarial tests, precision/recall, calibration, reproducibility and version drift", "Governance: deployment decisions, privacy, monitoring, escalation, residual risk and accountability"], project: "Produce a reproducible AI safety audit dossier. Apply it to Cloud L order/support assistants, Melat forecasting/recommendations, MMV Medical administrative assistants, and Home cross-project agents using synthetic or approved de-identified cases." }
 ];
 
 function el(tag, className, text) {
@@ -29,10 +30,10 @@ export function activate(ctx) {
       intro.append(
         el("p", "sl-eyebrow", "PERSONAL KNOWLEDGE SYSTEM"),
         el("h1", "sl-title", "Strategic Learning Programme"),
-        el("p", "sl-lede", "Eleven connected disciplines. One adaptive learning process. Learn to reason, apply and retain—not merely consume information.")
+        el("p", "sl-lede", "Twelve connected disciplines. One adaptive learning process. Learn to reason, apply and retain—not merely consume information.")
       );
       const stats = el("div", "sl-stats");
-      [["11","disciplines"],["6","stages per domain"],["1","integrated system"]].forEach(([n,l]) => {
+      [["12","disciplines"],["6","stages per domain"],["1","integrated system"]].forEach(([n,l]) => {
         const item=el("div","sl-stat"); item.append(el("strong","",n),el("span","",l)); stats.append(item);
       });
       intro.append(stats);
@@ -56,7 +57,7 @@ export function activate(ctx) {
           details.append(summary,stages,project);
           const prompt=el("div","sl-prompt");
           prompt.append(el("span","sl-prompt-label","Start a session with this goal"));
-          const quote=el("p","sl-prompt-text",`Diagnose my current understanding of ${domain.name}. My goal: ${domain.goal} Build a prerequisite-aware learning path, teach me one reasoning step at a time, and assess transfer through unfamiliar cases. Use Lastbook as my separate offline reference: tell me what keyword or topic to search there; when I return with a source title and page number or video timestamp, use that source explicitly. Do not pretend you can browse my local Lastbook library or invent citations.`);
+          const quote=el("p","sl-prompt-text",`Diagnose my current understanding of ${domain.name}. My goal: ${domain.goal} Build a prerequisite-aware learning path, teach me one reasoning step at a time, and assess transfer through unfamiliar cases. Use the catalogue's applied project as a practical case, and require evidence, baselines, controls, limitations and a reproducible final artifact. Use Lastbook as my separate offline reference: tell me what keyword or topic to search there; when I return with a source title and page number or video timestamp, use that source explicitly. Do not pretend you can browse my local Lastbook library or invent citations.`);
           const copy=el("button","sl-copy","Copy starter prompt");
           copy.type="button";
           copy.addEventListener("click",async()=>{
@@ -69,7 +70,7 @@ export function activate(ctx) {
       };
       search.addEventListener("input",()=>render(search.value),{signal});
       const cross=el("section","sl-cross");
-      cross.append(el("h2","","Interdisciplinary connections"),el("p","","Geopolitics + economics + logistics: strategic dependencies and trade. Psychology + philosophy + influence: belief, reasoning and persuasion. Healthcare data + business: quality, productivity and operating decisions. History + politics: institutions, legitimacy and succession. Screenwriting + cinematography + psychology: character, image and audience response."));
+      cross.append(el("h2","","Interdisciplinary connections"),el("p","","Geopolitics + economics + logistics: strategic dependencies and trade. Psychology + philosophy + influence: belief, reasoning and persuasion. Healthcare data + business: quality, productivity and operating decisions. History + politics: institutions, legitimacy and succession. Screenwriting + cinematography + psychology: character, image and audience response. Mechanistic interpretability + AI safety + governance: internal evidence, behavioural tests and accountable deployment."));
       const reference=el("section","sl-reference");
       reference.append(
         el("h2","","Lastbook · offline reference companion"),
