@@ -15,7 +15,8 @@
       "Fiction",
       "Picture books and graphic novels"
     ],
-    "importStatus": "verified_seed_incomplete"
+    "importStatus": "provisional_seed_needs_full_source_validation",
+    "note": "40 provisional candidate records only. Full extraction of the publisher's 300+ titles and line-by-line title/author validation are not complete. Do not treat the 40 records as a verified publisher subset."
   },
   "scoring": {
     "scale": "0-5",
@@ -46,9 +47,10 @@
       ],
       "rationale": "Elite theory and political power.",
       "duplicateStatus": "external_inventory_unchecked",
-      "repositoryInventoryStatus": "not_found_in_repo_seed_only",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
       "readingStatus": "unselected",
-      "mandatory": false
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
     },
     {
       "id": "a16z-2026-002",
@@ -69,9 +71,10 @@
       ],
       "rationale": "Status competition, signaling and social identity.",
       "duplicateStatus": "external_inventory_unchecked",
-      "repositoryInventoryStatus": "not_found_in_repo_seed_only",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
       "readingStatus": "unselected",
-      "mandatory": false
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
     },
     {
       "id": "a16z-2026-003",
@@ -91,9 +94,10 @@
       ],
       "rationale": "Attention and information diffusion.",
       "duplicateStatus": "external_inventory_unchecked",
-      "repositoryInventoryStatus": "not_found_in_repo_seed_only",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
       "readingStatus": "unselected",
-      "mandatory": false
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
     },
     {
       "id": "a16z-2026-004",
@@ -114,9 +118,10 @@
       ],
       "rationale": "Cinema as state power, censorship and propaganda.",
       "duplicateStatus": "external_inventory_unchecked",
-      "repositoryInventoryStatus": "not_found_in_repo_seed_only",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
       "readingStatus": "unselected",
-      "mandatory": false
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
     },
     {
       "id": "a16z-2026-005",
@@ -135,9 +140,10 @@
       ],
       "rationale": "Film structure and directing choices.",
       "duplicateStatus": "external_inventory_unchecked",
-      "repositoryInventoryStatus": "not_found_in_repo_seed_only",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
       "readingStatus": "unselected",
-      "mandatory": false
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
     },
     {
       "id": "a16z-2026-006",
@@ -157,9 +163,10 @@
       ],
       "rationale": "Customer experience and service differentiation.",
       "duplicateStatus": "external_inventory_unchecked",
-      "repositoryInventoryStatus": "not_found_in_repo_seed_only",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
       "readingStatus": "unselected",
-      "mandatory": false
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
     },
     {
       "id": "a16z-2026-007",
@@ -178,9 +185,10 @@
       ],
       "rationale": "Habit formation and behaviour design.",
       "duplicateStatus": "external_inventory_unchecked",
-      "repositoryInventoryStatus": "not_found_in_repo_seed_only",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
       "readingStatus": "unselected",
-      "mandatory": false
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
     },
     {
       "id": "a16z-2026-008",
@@ -200,9 +208,10 @@
       ],
       "rationale": "Knowledge capture and retrieval.",
       "duplicateStatus": "external_inventory_unchecked",
-      "repositoryInventoryStatus": "not_found_in_repo_seed_only",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
       "readingStatus": "unselected",
-      "mandatory": false
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
     },
     {
       "id": "a16z-2026-009",
@@ -223,9 +232,10 @@
       ],
       "rationale": "Global production networks and technology-state relations.",
       "duplicateStatus": "external_inventory_unchecked",
-      "repositoryInventoryStatus": "not_found_in_repo_seed_only",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
       "readingStatus": "unselected",
-      "mandatory": false
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
     },
     {
       "id": "a16z-2026-010",
@@ -246,9 +256,10 @@
       ],
       "rationale": "Semiconductor value chains and strategic dependencies.",
       "duplicateStatus": "external_inventory_unchecked",
-      "repositoryInventoryStatus": "not_found_in_repo_seed_only",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
       "readingStatus": "unselected",
-      "mandatory": false
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
     },
     {
       "id": "a16z-2026-011",
@@ -269,9 +280,10 @@
       ],
       "rationale": "Critical manufacturing equipment and industrial chokepoints.",
       "duplicateStatus": "external_inventory_unchecked",
-      "repositoryInventoryStatus": "not_found_in_repo_seed_only",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
       "readingStatus": "unselected",
-      "mandatory": false
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
     },
     {
       "id": "a16z-2026-012",
@@ -291,9 +303,10 @@
       ],
       "rationale": "Framework for durable competitive advantage.",
       "duplicateStatus": "external_inventory_unchecked",
-      "repositoryInventoryStatus": "not_found_in_repo_seed_only",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
       "readingStatus": "unselected",
-      "mandatory": false
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
     },
     {
       "id": "a16z-2026-013",
@@ -312,9 +325,10 @@
       ],
       "rationale": "Leadership under company-threatening pressure.",
       "duplicateStatus": "external_inventory_unchecked",
-      "repositoryInventoryStatus": "not_found_in_repo_seed_only",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
       "readingStatus": "unselected",
-      "mandatory": false
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
     },
     {
       "id": "a16z-2026-014",
@@ -334,9 +348,10 @@
       ],
       "rationale": "Industry structure and competitive strategy.",
       "duplicateStatus": "external_inventory_unchecked",
-      "repositoryInventoryStatus": "not_found_in_repo_seed_only",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
       "readingStatus": "unselected",
-      "mandatory": false
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
     },
     {
       "id": "a16z-2026-015",
@@ -356,9 +371,10 @@
       ],
       "rationale": "Differentiation and startup strategy; assess claims critically.",
       "duplicateStatus": "external_inventory_unchecked",
-      "repositoryInventoryStatus": "not_found_in_repo_seed_only",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
       "readingStatus": "unselected",
-      "mandatory": false
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
     },
     {
       "id": "a16z-2026-016",
@@ -378,9 +394,10 @@
       ],
       "rationale": "Probabilistic reasoning, investing and risk.",
       "duplicateStatus": "external_inventory_unchecked",
-      "repositoryInventoryStatus": "not_found_in_repo_seed_only",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
       "readingStatus": "unselected",
-      "mandatory": false
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
     },
     {
       "id": "a16z-2026-017",
@@ -400,9 +417,10 @@
       ],
       "rationale": "Negotiation and communication under pressure.",
       "duplicateStatus": "external_inventory_unchecked",
-      "repositoryInventoryStatus": "not_found_in_repo_seed_only",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
       "readingStatus": "unselected",
-      "mandatory": false
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
     },
     {
       "id": "a16z-2026-018",
@@ -422,9 +440,10 @@
       ],
       "rationale": "Preventive health; verify medical claims independently.",
       "duplicateStatus": "external_inventory_unchecked",
-      "repositoryInventoryStatus": "not_found_in_repo_seed_only",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
       "readingStatus": "unselected",
-      "mandatory": false
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
     },
     {
       "id": "a16z-2026-019",
@@ -443,9 +462,10 @@
       ],
       "rationale": "Evolutionary anthropology and physical activity.",
       "duplicateStatus": "external_inventory_unchecked",
-      "repositoryInventoryStatus": "not_found_in_repo_seed_only",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
       "readingStatus": "unselected",
-      "mandatory": false
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
     },
     {
       "id": "a16z-2026-020",
@@ -465,9 +485,10 @@
       ],
       "rationale": "Leadership, logistics and resilience.",
       "duplicateStatus": "external_inventory_unchecked",
-      "repositoryInventoryStatus": "not_found_in_repo_seed_only",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
       "readingStatus": "unselected",
-      "mandatory": false
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
     },
     {
       "id": "a16z-2026-021",
@@ -487,9 +508,10 @@
       ],
       "rationale": "Navigation, migration and scientific inference.",
       "duplicateStatus": "external_inventory_unchecked",
-      "repositoryInventoryStatus": "not_found_in_repo_seed_only",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
       "readingStatus": "unselected",
-      "mandatory": false
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
     },
     {
       "id": "a16z-2026-022",
@@ -509,9 +531,10 @@
       ],
       "rationale": "Institutional breakdown and contested narratives.",
       "duplicateStatus": "external_inventory_unchecked",
-      "repositoryInventoryStatus": "not_found_in_repo_seed_only",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
       "readingStatus": "unselected",
-      "mandatory": false
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
     },
     {
       "id": "a16z-2026-023",
@@ -532,9 +555,10 @@
       ],
       "rationale": "Military theory, OODA loop and bureaucratic resistance.",
       "duplicateStatus": "external_inventory_unchecked",
-      "repositoryInventoryStatus": "not_found_in_repo_seed_only",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
       "readingStatus": "unselected",
-      "mandatory": false
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
     },
     {
       "id": "a16z-2026-024",
@@ -555,9 +579,10 @@
       ],
       "rationale": "European state formation after 1945.",
       "duplicateStatus": "external_inventory_unchecked",
-      "repositoryInventoryStatus": "not_found_in_repo_seed_only",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
       "readingStatus": "unselected",
-      "mandatory": false
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
     },
     {
       "id": "a16z-2026-025",
@@ -577,9 +602,10 @@
       ],
       "rationale": "Institutional power and infrastructure control.",
       "duplicateStatus": "external_inventory_unchecked",
-      "repositoryInventoryStatus": "not_found_in_repo_seed_only",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
       "readingStatus": "unselected",
-      "mandatory": false
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
     },
     {
       "id": "a16z-2026-026",
@@ -600,9 +626,10 @@
       ],
       "rationale": "State legibility and failures of administrative simplification.",
       "duplicateStatus": "external_inventory_unchecked",
-      "repositoryInventoryStatus": "not_found_in_repo_seed_only",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
       "readingStatus": "unselected",
-      "mandatory": false
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
     },
     {
       "id": "a16z-2026-027",
@@ -622,9 +649,10 @@
       ],
       "rationale": "Early states, agriculture, taxation and coercive capacity.",
       "duplicateStatus": "external_inventory_unchecked",
-      "repositoryInventoryStatus": "not_found_in_repo_seed_only",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
       "readingStatus": "unselected",
-      "mandatory": false
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
     },
     {
       "id": "a16z-2026-028",
@@ -644,9 +672,10 @@
       ],
       "rationale": "Roman institutions, citizenship and imperial transformation.",
       "duplicateStatus": "external_inventory_unchecked",
-      "repositoryInventoryStatus": "not_found_in_repo_seed_only",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
       "readingStatus": "unselected",
-      "mandatory": false
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
     },
     {
       "id": "a16z-2026-029",
@@ -666,9 +695,10 @@
       ],
       "rationale": "Foundations of computation and AI history.",
       "duplicateStatus": "external_inventory_unchecked",
-      "repositoryInventoryStatus": "not_found_in_repo_seed_only",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
       "readingStatus": "unselected",
-      "mandatory": false
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
     },
     {
       "id": "a16z-2026-030",
@@ -688,9 +718,10 @@
       ],
       "rationale": "Distributed systems and reliable data architecture.",
       "duplicateStatus": "external_inventory_unchecked",
-      "repositoryInventoryStatus": "not_found_in_repo_seed_only",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
       "readingStatus": "unselected",
-      "mandatory": false
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
     },
     {
       "id": "a16z-2026-031",
@@ -710,9 +741,10 @@
       ],
       "rationale": "Open-source economics and community sustainability.",
       "duplicateStatus": "external_inventory_unchecked",
-      "repositoryInventoryStatus": "not_found_in_repo_seed_only",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
       "readingStatus": "unselected",
-      "mandatory": false
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
     },
     {
       "id": "a16z-2026-032",
@@ -732,9 +764,10 @@
       ],
       "rationale": "Algorithmic thinking for everyday decisions.",
       "duplicateStatus": "external_inventory_unchecked",
-      "repositoryInventoryStatus": "not_found_in_repo_seed_only",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
       "readingStatus": "unselected",
-      "mandatory": false
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
     },
     {
       "id": "a16z-2026-033",
@@ -755,9 +788,10 @@
       ],
       "rationale": "Calibration and probabilistic forecasting.",
       "duplicateStatus": "external_inventory_unchecked",
-      "repositoryInventoryStatus": "not_found_in_repo_seed_only",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
       "readingStatus": "unselected",
-      "mandatory": false
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
     },
     {
       "id": "a16z-2026-034",
@@ -778,9 +812,10 @@
       ],
       "rationale": "Feedback loops, stocks, flows and leverage points.",
       "duplicateStatus": "external_inventory_unchecked",
-      "repositoryInventoryStatus": "not_found_in_repo_seed_only",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
       "readingStatus": "unselected",
-      "mandatory": false
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
     },
     {
       "id": "a16z-2026-035",
@@ -800,9 +835,10 @@
       ],
       "rationale": "Explanatory knowledge and progress.",
       "duplicateStatus": "external_inventory_unchecked",
-      "repositoryInventoryStatus": "not_found_in_repo_seed_only",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
       "readingStatus": "unselected",
-      "mandatory": false
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
     },
     {
       "id": "a16z-2026-036",
@@ -822,9 +858,10 @@
       ],
       "rationale": "Institutional innovation and research management.",
       "duplicateStatus": "external_inventory_unchecked",
-      "repositoryInventoryStatus": "not_found_in_repo_seed_only",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
       "readingStatus": "unselected",
-      "mandatory": false
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
     },
     {
       "id": "a16z-2026-037",
@@ -845,9 +882,10 @@
       ],
       "rationale": "Scientific paradigms and evidence standards.",
       "duplicateStatus": "external_inventory_unchecked",
-      "repositoryInventoryStatus": "not_found_in_repo_seed_only",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
       "readingStatus": "unselected",
-      "mandatory": false
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
     },
     {
       "id": "a16z-2026-038",
@@ -867,9 +905,10 @@
       ],
       "rationale": "Engineering problem-solving in speculative conditions.",
       "duplicateStatus": "external_inventory_unchecked",
-      "repositoryInventoryStatus": "not_found_in_repo_seed_only",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
       "readingStatus": "unselected",
-      "mandatory": false
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
     },
     {
       "id": "a16z-2026-039",
@@ -890,9 +929,10 @@
       ],
       "rationale": "Strategic interaction and civilizational risk.",
       "duplicateStatus": "external_inventory_unchecked",
-      "repositoryInventoryStatus": "not_found_in_repo_seed_only",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
       "readingStatus": "unselected",
-      "mandatory": false
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
     },
     {
       "id": "a16z-2026-040",
@@ -912,9 +952,10 @@
       ],
       "rationale": "Limits of human understanding of nonhuman systems.",
       "duplicateStatus": "external_inventory_unchecked",
-      "repositoryInventoryStatus": "not_found_in_repo_seed_only",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
       "readingStatus": "unselected",
-      "mandatory": false
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
     }
   ]
 }
