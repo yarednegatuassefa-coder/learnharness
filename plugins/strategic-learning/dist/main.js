@@ -167,10 +167,10 @@ export function activate(ctx) {
       intro.append(
         el("p", "sl-eyebrow", "OPTIONAL REFERENCE COLLECTION"),
         el("h1", "sl-title", "a16z Frontier reading library"),
-        el("p", "sl-lede", "Browse a verified seed of the a16z Frontier 300+ book collection. These are optional references, not required lessons or completion tasks.")
+        el("p", "sl-lede", "Browse a provisional 40-record seed for the a16z Frontier 300+ book collection. Source validation and full extraction are outstanding. These are optional references, not required lessons or completion tasks.")
       );
       const stats = el("div", "sl-stats");
-      [["40","verified seed titles"],["8","publisher genres"],["12","curriculum disciplines"]].forEach(([n,l]) => {
+      [["40","provisional seed records"],["8","publisher genres"],["12","curriculum disciplines"]].forEach(([n,l]) => {
         const item=el("div","sl-stat"); item.append(el("strong","",n),el("span","",l)); stats.append(item);
       });
       intro.append(stats);
@@ -205,7 +205,7 @@ export function activate(ctx) {
         });
       };
       search.addEventListener("input",()=>render(search.value),{signal});
-      const note=el("p","sl-publish-note","Import status: verified seed only. The publisher lists 300+ titles; the full extraction is still pending. Duplicate matching against Lastbook is not complete because its local library is separate and inaccessible to this plugin.");
+      const note=el("p","sl-publish-note","Import status: provisional 40-record seed. Publisher-page validation and extraction of all 300+ titles are still pending. Duplicate matching against Lastbook is not complete because its local library is separate and inaccessible to this plugin.");
       root.append(intro,source,sourceLink,search,list,note);
       container.append(root); render();
       return ()=>{root.remove();};
