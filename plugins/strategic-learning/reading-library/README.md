@@ -11,7 +11,7 @@ An optional reference catalogue, not a set of mandatory LearnHarness assignments
 - Original genres: Adventure, sport, and memoir; Arts and culture; Business and economics; Health, endurance, and longevity; History and politics; Science and technology; Fiction; Picture books and graphic novels.
 
 ## Import status
-This is a **verified seed catalogue**, not a completed extraction of every title. The publisher page advertises 300+ entries; the JSON contains a subset verified against that page. Do not present the seed as the complete collection. Continue extraction from the canonical source and preserve each exact title, author/editor, original genre and subgenre.
+This is a **provisional 40-record seed**, not a verified publisher subset and not a completed extraction. The publisher page advertises 300+ entries. Title/author matching for the seed itself still requires line-by-line validation against the canonical page. Do not present these records as the complete collection or as fully verified. Complete extraction and validation remain blocking work.
 
 ## Curriculum mapping
 The LearnHarness disciplines remain the existing twelve: Political Science and Power; Geopolitics; Economics and Wealth; Business and Entrepreneurship; Psychology and Human Behaviour; History and Dynastic Systems; Supply Chain and Logistics; Philosophy; Healthcare Data Analysis; Cinematography, Filmmaking and Screenwriting; Propaganda, Strategic Communication and Influence; Mechanistic Interpretability, AI Safety and Model Auditing.
