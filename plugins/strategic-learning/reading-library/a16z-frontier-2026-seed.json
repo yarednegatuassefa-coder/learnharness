@@ -1,0 +1,961 @@
+{
+  "source": {
+    "publisher": "a16z Frontier editorial",
+    "title": "300+ books to read: A gift guide for curious readers",
+    "published": "2026-11-24",
+    "url": "https://a16zfrontier.com/posts/article/300-books-to-read-gift-guide/",
+    "claimedCollectionSize": "300+",
+    "genres": [
+      "Adventure, sport, and memoir",
+      "Arts and culture",
+      "Business and economics",
+      "Health, endurance, and longevity",
+      "History and politics",
+      "Science and technology",
+      "Fiction",
+      "Picture books and graphic novels"
+    ],
+    "importStatus": "provisional_seed_needs_full_source_validation",
+    "note": "40 provisional candidate records only. Full extraction of the publisher's 300+ titles and line-by-line title/author validation are not complete. Do not treat the 40 records as a verified publisher subset."
+  },
+  "scoring": {
+    "scale": "0-5",
+    "weights": {
+      "intellectualValue": 0.4,
+      "practicalApplication": 0.35,
+      "relevance": 0.25
+    },
+    "formula": "0.40*intellectualValue + 0.35*practicalApplication + 0.25*relevance"
+  },
+  "books": [
+    {
+      "id": "a16z-2026-001",
+      "title": "The Machiavellians: Defenders of Freedom",
+      "author": "James Burnham",
+      "sourceGenre": "Arts and culture",
+      "sourceSubgenre": "How ideas spread and shape culture",
+      "scores": {
+        "intellectualValue": 5,
+        "practicalApplication": 4,
+        "relevance": 5,
+        "composite": 4.65
+      },
+      "disciplines": [
+        "Political Science and Power",
+        "Philosophy",
+        "History and Dynastic Systems"
+      ],
+      "rationale": "Elite theory and political power.",
+      "duplicateStatus": "external_inventory_unchecked",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
+      "readingStatus": "unselected",
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
+    },
+    {
+      "id": "a16z-2026-002",
+      "title": "Status and Culture: How Our Desire for Social Rank Creates Taste, Identity, Art, Fashion, and Constant Change",
+      "author": "W. David Marx",
+      "sourceGenre": "Arts and culture",
+      "sourceSubgenre": "How ideas spread and shape culture",
+      "scores": {
+        "intellectualValue": 4,
+        "practicalApplication": 4,
+        "relevance": 5,
+        "composite": 4.25
+      },
+      "disciplines": [
+        "Psychology and Human Behaviour",
+        "Business and Entrepreneurship",
+        "Propaganda, Strategic Communication and Influence"
+      ],
+      "rationale": "Status competition, signaling and social identity.",
+      "duplicateStatus": "external_inventory_unchecked",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
+      "readingStatus": "unselected",
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
+    },
+    {
+      "id": "a16z-2026-003",
+      "title": "Antimemetics: Why Some Ideas Resist Spreading",
+      "author": "Nadia Asparouhova",
+      "sourceGenre": "Arts and culture",
+      "sourceSubgenre": "How ideas spread and shape culture",
+      "scores": {
+        "intellectualValue": 4,
+        "practicalApplication": 4,
+        "relevance": 5,
+        "composite": 4.25
+      },
+      "disciplines": [
+        "Propaganda, Strategic Communication and Influence",
+        "Psychology and Human Behaviour"
+      ],
+      "rationale": "Attention and information diffusion.",
+      "duplicateStatus": "external_inventory_unchecked",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
+      "readingStatus": "unselected",
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
+    },
+    {
+      "id": "a16z-2026-004",
+      "title": "Not According to Plan: Filmmaking Under Stalin",
+      "author": "Maria Belodubrovskaya",
+      "sourceGenre": "Arts and culture",
+      "sourceSubgenre": "The process of creativity",
+      "scores": {
+        "intellectualValue": 5,
+        "practicalApplication": 4,
+        "relevance": 4,
+        "composite": 4.4
+      },
+      "disciplines": [
+        "Cinematography, Filmmaking and Screenwriting",
+        "Propaganda, Strategic Communication and Influence",
+        "History and Dynastic Systems"
+      ],
+      "rationale": "Cinema as state power, censorship and propaganda.",
+      "duplicateStatus": "external_inventory_unchecked",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
+      "readingStatus": "unselected",
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
+    },
+    {
+      "id": "a16z-2026-005",
+      "title": "The Nolan Variations: The Movies, Mysteries, and Marvels of Christopher Nolan",
+      "author": "Tom Shone",
+      "sourceGenre": "Arts and culture",
+      "sourceSubgenre": "The process of creativity",
+      "scores": {
+        "intellectualValue": 3,
+        "practicalApplication": 3,
+        "relevance": 4,
+        "composite": 3.25
+      },
+      "disciplines": [
+        "Cinematography, Filmmaking and Screenwriting"
+      ],
+      "rationale": "Film structure and directing choices.",
+      "duplicateStatus": "external_inventory_unchecked",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
+      "readingStatus": "unselected",
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
+    },
+    {
+      "id": "a16z-2026-006",
+      "title": "Unreasonable Hospitality: The Remarkable Power of Giving People More Than You Expect",
+      "author": "Will Guidara",
+      "sourceGenre": "Arts and culture",
+      "sourceSubgenre": "The process of creativity",
+      "scores": {
+        "intellectualValue": 3,
+        "practicalApplication": 5,
+        "relevance": 5,
+        "composite": 4.2
+      },
+      "disciplines": [
+        "Business and Entrepreneurship",
+        "Psychology and Human Behaviour"
+      ],
+      "rationale": "Customer experience and service differentiation.",
+      "duplicateStatus": "external_inventory_unchecked",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
+      "readingStatus": "unselected",
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
+    },
+    {
+      "id": "a16z-2026-007",
+      "title": "Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones",
+      "author": "James Clear",
+      "sourceGenre": "Business and economics",
+      "sourceSubgenre": "Building better work habits",
+      "scores": {
+        "intellectualValue": 3,
+        "practicalApplication": 5,
+        "relevance": 4,
+        "composite": 3.95
+      },
+      "disciplines": [
+        "Psychology and Human Behaviour"
+      ],
+      "rationale": "Habit formation and behaviour design.",
+      "duplicateStatus": "external_inventory_unchecked",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
+      "readingStatus": "unselected",
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
+    },
+    {
+      "id": "a16z-2026-008",
+      "title": "Building a Second Brain: A Proven Method to Organize Your Digital Life and Unlock Your Creative Potential",
+      "author": "Tiago Forte",
+      "sourceGenre": "Business and economics",
+      "sourceSubgenre": "Building better work habits",
+      "scores": {
+        "intellectualValue": 3,
+        "practicalApplication": 5,
+        "relevance": 5,
+        "composite": 4.2
+      },
+      "disciplines": [
+        "Business and Entrepreneurship",
+        "Philosophy"
+      ],
+      "rationale": "Knowledge capture and retrieval.",
+      "duplicateStatus": "external_inventory_unchecked",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
+      "readingStatus": "unselected",
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
+    },
+    {
+      "id": "a16z-2026-009",
+      "title": "Apple in China",
+      "author": "Patrick McGee",
+      "sourceGenre": "Business and economics",
+      "sourceSubgenre": "Company, industry, and founder histories",
+      "scores": {
+        "intellectualValue": 5,
+        "practicalApplication": 5,
+        "relevance": 5,
+        "composite": 5
+      },
+      "disciplines": [
+        "Geopolitics",
+        "Supply Chain and Logistics",
+        "Business and Entrepreneurship"
+      ],
+      "rationale": "Global production networks and technology-state relations.",
+      "duplicateStatus": "external_inventory_unchecked",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
+      "readingStatus": "unselected",
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
+    },
+    {
+      "id": "a16z-2026-010",
+      "title": "Chip War: The Fight for the World’s Most Critical Technology",
+      "author": "Chris Miller",
+      "sourceGenre": "Business and economics",
+      "sourceSubgenre": "Company, industry, and founder histories",
+      "scores": {
+        "intellectualValue": 5,
+        "practicalApplication": 5,
+        "relevance": 5,
+        "composite": 5
+      },
+      "disciplines": [
+        "Geopolitics",
+        "Supply Chain and Logistics",
+        "Business and Entrepreneurship"
+      ],
+      "rationale": "Semiconductor value chains and strategic dependencies.",
+      "duplicateStatus": "external_inventory_unchecked",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
+      "readingStatus": "unselected",
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
+    },
+    {
+      "id": "a16z-2026-011",
+      "title": "Focus: The ASML Way – Inside the Power Struggle Over the Most Complex Machine on Earth",
+      "author": "Marc Hijink",
+      "sourceGenre": "Business and economics",
+      "sourceSubgenre": "Company, industry, and founder histories",
+      "scores": {
+        "intellectualValue": 4,
+        "practicalApplication": 4,
+        "relevance": 5,
+        "composite": 4.25
+      },
+      "disciplines": [
+        "Supply Chain and Logistics",
+        "Geopolitics",
+        "Business and Entrepreneurship"
+      ],
+      "rationale": "Critical manufacturing equipment and industrial chokepoints.",
+      "duplicateStatus": "external_inventory_unchecked",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
+      "readingStatus": "unselected",
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
+    },
+    {
+      "id": "a16z-2026-012",
+      "title": "7 Powers: The Foundations of Business Strategy",
+      "author": "Hamilton Helmer",
+      "sourceGenre": "Business and economics",
+      "sourceSubgenre": "How to build competitive advantage",
+      "scores": {
+        "intellectualValue": 5,
+        "practicalApplication": 5,
+        "relevance": 5,
+        "composite": 5
+      },
+      "disciplines": [
+        "Business and Entrepreneurship",
+        "Economics and Wealth"
+      ],
+      "rationale": "Framework for durable competitive advantage.",
+      "duplicateStatus": "external_inventory_unchecked",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
+      "readingStatus": "unselected",
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
+    },
+    {
+      "id": "a16z-2026-013",
+      "title": "The Hard Thing About Hard Things",
+      "author": "Ben Horowitz",
+      "sourceGenre": "Business and economics",
+      "sourceSubgenre": "How to build competitive advantage",
+      "scores": {
+        "intellectualValue": 3,
+        "practicalApplication": 5,
+        "relevance": 4,
+        "composite": 3.95
+      },
+      "disciplines": [
+        "Business and Entrepreneurship"
+      ],
+      "rationale": "Leadership under company-threatening pressure.",
+      "duplicateStatus": "external_inventory_unchecked",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
+      "readingStatus": "unselected",
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
+    },
+    {
+      "id": "a16z-2026-014",
+      "title": "Understanding Michael Porter: The Essential Guide to Competition and Strategy",
+      "author": "Joan Magretta",
+      "sourceGenre": "Business and economics",
+      "sourceSubgenre": "How to build competitive advantage",
+      "scores": {
+        "intellectualValue": 4,
+        "practicalApplication": 5,
+        "relevance": 5,
+        "composite": 4.6
+      },
+      "disciplines": [
+        "Business and Entrepreneurship",
+        "Economics and Wealth"
+      ],
+      "rationale": "Industry structure and competitive strategy.",
+      "duplicateStatus": "external_inventory_unchecked",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
+      "readingStatus": "unselected",
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
+    },
+    {
+      "id": "a16z-2026-015",
+      "title": "Zero to One: Notes on Startups, or How to Build the Future",
+      "author": "Peter Thiel with Blake Masters",
+      "sourceGenre": "Business and economics",
+      "sourceSubgenre": "How to build competitive advantage",
+      "scores": {
+        "intellectualValue": 3,
+        "practicalApplication": 4,
+        "relevance": 4,
+        "composite": 3.6
+      },
+      "disciplines": [
+        "Business and Entrepreneurship",
+        "Economics and Wealth"
+      ],
+      "rationale": "Differentiation and startup strategy; assess claims critically.",
+      "duplicateStatus": "external_inventory_unchecked",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
+      "readingStatus": "unselected",
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
+    },
+    {
+      "id": "a16z-2026-016",
+      "title": "A Man for All Markets: From Las Vegas to Wall Street, How I Beat the Dealer and the Market",
+      "author": "Edward O. Thorp",
+      "sourceGenre": "Business and economics",
+      "sourceSubgenre": "Understanding financial systems",
+      "scores": {
+        "intellectualValue": 5,
+        "practicalApplication": 4,
+        "relevance": 4,
+        "composite": 4.4
+      },
+      "disciplines": [
+        "Economics and Wealth",
+        "Psychology and Human Behaviour"
+      ],
+      "rationale": "Probabilistic reasoning, investing and risk.",
+      "duplicateStatus": "external_inventory_unchecked",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
+      "readingStatus": "unselected",
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
+    },
+    {
+      "id": "a16z-2026-017",
+      "title": "Never Split the Difference: Negotiating As If Your Life Depended on It",
+      "author": "Chris Voss with Tahl Raz",
+      "sourceGenre": "Business and economics",
+      "sourceSubgenre": "Communication and negotiation",
+      "scores": {
+        "intellectualValue": 3,
+        "practicalApplication": 5,
+        "relevance": 5,
+        "composite": 4.2
+      },
+      "disciplines": [
+        "Business and Entrepreneurship",
+        "Psychology and Human Behaviour"
+      ],
+      "rationale": "Negotiation and communication under pressure.",
+      "duplicateStatus": "external_inventory_unchecked",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
+      "readingStatus": "unselected",
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
+    },
+    {
+      "id": "a16z-2026-018",
+      "title": "Outlive: The Science and Art of Longevity",
+      "author": "Peter Attia, MD, with Bill Gifford",
+      "sourceGenre": "Health, endurance, and longevity",
+      "sourceSubgenre": "Exercise and longevity",
+      "scores": {
+        "intellectualValue": 3,
+        "practicalApplication": 4,
+        "relevance": 3,
+        "composite": 3.35
+      },
+      "disciplines": [
+        "Healthcare Data Analysis",
+        "Psychology and Human Behaviour"
+      ],
+      "rationale": "Preventive health; verify medical claims independently.",
+      "duplicateStatus": "external_inventory_unchecked",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
+      "readingStatus": "unselected",
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
+    },
+    {
+      "id": "a16z-2026-019",
+      "title": "Exercised: Why Something We Never Evolved to Do Is Healthy and Rewarding",
+      "author": "Daniel E. Lieberman",
+      "sourceGenre": "Health, endurance, and longevity",
+      "sourceSubgenre": "Exercise and longevity",
+      "scores": {
+        "intellectualValue": 4,
+        "practicalApplication": 4,
+        "relevance": 3,
+        "composite": 3.75
+      },
+      "disciplines": [
+        "Healthcare Data Analysis"
+      ],
+      "rationale": "Evolutionary anthropology and physical activity.",
+      "duplicateStatus": "external_inventory_unchecked",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
+      "readingStatus": "unselected",
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
+    },
+    {
+      "id": "a16z-2026-020",
+      "title": "Endurance: Shackleton’s Incredible Voyage",
+      "author": "Alfred Lansing",
+      "sourceGenre": "Adventure, sport, and memoir",
+      "sourceSubgenre": "Expeditions",
+      "scores": {
+        "intellectualValue": 4,
+        "practicalApplication": 4,
+        "relevance": 4,
+        "composite": 4
+      },
+      "disciplines": [
+        "History and Dynastic Systems",
+        "Psychology and Human Behaviour"
+      ],
+      "rationale": "Leadership, logistics and resilience.",
+      "duplicateStatus": "external_inventory_unchecked",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
+      "readingStatus": "unselected",
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
+    },
+    {
+      "id": "a16z-2026-021",
+      "title": "Sea People: The Puzzle of Polynesia",
+      "author": "Christina Thompson",
+      "sourceGenre": "Adventure, sport, and memoir",
+      "sourceSubgenre": "Expeditions",
+      "scores": {
+        "intellectualValue": 5,
+        "practicalApplication": 3,
+        "relevance": 4,
+        "composite": 4.05
+      },
+      "disciplines": [
+        "History and Dynastic Systems",
+        "Geopolitics"
+      ],
+      "rationale": "Navigation, migration and scientific inference.",
+      "duplicateStatus": "external_inventory_unchecked",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
+      "readingStatus": "unselected",
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
+    },
+    {
+      "id": "a16z-2026-022",
+      "title": "The Wager: A Tale of Shipwreck, Mutiny and Murder",
+      "author": "David Grann",
+      "sourceGenre": "Adventure, sport, and memoir",
+      "sourceSubgenre": "Expeditions",
+      "scores": {
+        "intellectualValue": 4,
+        "practicalApplication": 3,
+        "relevance": 4,
+        "composite": 3.65
+      },
+      "disciplines": [
+        "History and Dynastic Systems",
+        "Psychology and Human Behaviour"
+      ],
+      "rationale": "Institutional breakdown and contested narratives.",
+      "duplicateStatus": "external_inventory_unchecked",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
+      "readingStatus": "unselected",
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
+    },
+    {
+      "id": "a16z-2026-023",
+      "title": "Boyd: The Fighter Pilot Who Changed the Art of War",
+      "author": "Robert Coram",
+      "sourceGenre": "History and politics",
+      "sourceSubgenre": "Lessons from war",
+      "scores": {
+        "intellectualValue": 4,
+        "practicalApplication": 4,
+        "relevance": 5,
+        "composite": 4.25
+      },
+      "disciplines": [
+        "Political Science and Power",
+        "Geopolitics",
+        "Psychology and Human Behaviour"
+      ],
+      "rationale": "Military theory, OODA loop and bureaucratic resistance.",
+      "duplicateStatus": "external_inventory_unchecked",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
+      "readingStatus": "unselected",
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
+    },
+    {
+      "id": "a16z-2026-024",
+      "title": "Postwar",
+      "author": "Tony Judt",
+      "sourceGenre": "History and politics",
+      "sourceSubgenre": "Lessons from war",
+      "scores": {
+        "intellectualValue": 5,
+        "practicalApplication": 3,
+        "relevance": 4,
+        "composite": 4.05
+      },
+      "disciplines": [
+        "History and Dynastic Systems",
+        "Geopolitics",
+        "Political Science and Power"
+      ],
+      "rationale": "European state formation after 1945.",
+      "duplicateStatus": "external_inventory_unchecked",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
+      "readingStatus": "unselected",
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
+    },
+    {
+      "id": "a16z-2026-025",
+      "title": "The Power Broker: Robert Moses and the Fall of New York",
+      "author": "Robert A. Caro",
+      "sourceGenre": "History and politics",
+      "sourceSubgenre": "On government as builder: city, state, policy",
+      "scores": {
+        "intellectualValue": 5,
+        "practicalApplication": 4,
+        "relevance": 5,
+        "composite": 4.65
+      },
+      "disciplines": [
+        "Political Science and Power",
+        "History and Dynastic Systems"
+      ],
+      "rationale": "Institutional power and infrastructure control.",
+      "duplicateStatus": "external_inventory_unchecked",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
+      "readingStatus": "unselected",
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
+    },
+    {
+      "id": "a16z-2026-026",
+      "title": "Seeing Like a State: How Certain Schemes to Improve the Human Condition Have Failed",
+      "author": "James C. Scott",
+      "sourceGenre": "History and politics",
+      "sourceSubgenre": "On government as builder: city, state, policy",
+      "scores": {
+        "intellectualValue": 5,
+        "practicalApplication": 5,
+        "relevance": 5,
+        "composite": 5
+      },
+      "disciplines": [
+        "Political Science and Power",
+        "History and Dynastic Systems",
+        "Supply Chain and Logistics"
+      ],
+      "rationale": "State legibility and failures of administrative simplification.",
+      "duplicateStatus": "external_inventory_unchecked",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
+      "readingStatus": "unselected",
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
+    },
+    {
+      "id": "a16z-2026-027",
+      "title": "Against the Grain",
+      "author": "James C. Scott",
+      "sourceGenre": "History and politics",
+      "sourceSubgenre": "The rise and fall of ancient empires",
+      "scores": {
+        "intellectualValue": 5,
+        "practicalApplication": 4,
+        "relevance": 5,
+        "composite": 4.65
+      },
+      "disciplines": [
+        "History and Dynastic Systems",
+        "Political Science and Power"
+      ],
+      "rationale": "Early states, agriculture, taxation and coercive capacity.",
+      "duplicateStatus": "external_inventory_unchecked",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
+      "readingStatus": "unselected",
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
+    },
+    {
+      "id": "a16z-2026-028",
+      "title": "SPQR: A History of Ancient Rome",
+      "author": "Mary Beard",
+      "sourceGenre": "History and politics",
+      "sourceSubgenre": "The rise and fall of ancient empires",
+      "scores": {
+        "intellectualValue": 5,
+        "practicalApplication": 3,
+        "relevance": 5,
+        "composite": 4.3
+      },
+      "disciplines": [
+        "History and Dynastic Systems",
+        "Political Science and Power"
+      ],
+      "rationale": "Roman institutions, citizenship and imperial transformation.",
+      "duplicateStatus": "external_inventory_unchecked",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
+      "readingStatus": "unselected",
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
+    },
+    {
+      "id": "a16z-2026-029",
+      "title": "Alan Turing: The Enigma",
+      "author": "Andrew Hodges",
+      "sourceGenre": "Science and technology",
+      "sourceSubgenre": "Computing and the internet",
+      "scores": {
+        "intellectualValue": 5,
+        "practicalApplication": 3,
+        "relevance": 4,
+        "composite": 4.05
+      },
+      "disciplines": [
+        "Mechanistic Interpretability, AI Safety and Model Auditing",
+        "History and Dynastic Systems"
+      ],
+      "rationale": "Foundations of computation and AI history.",
+      "duplicateStatus": "external_inventory_unchecked",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
+      "readingStatus": "unselected",
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
+    },
+    {
+      "id": "a16z-2026-030",
+      "title": "Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems",
+      "author": "Martin Kleppmann",
+      "sourceGenre": "Science and technology",
+      "sourceSubgenre": "Computing and the internet",
+      "scores": {
+        "intellectualValue": 5,
+        "practicalApplication": 5,
+        "relevance": 4,
+        "composite": 4.75
+      },
+      "disciplines": [
+        "Business and Entrepreneurship",
+        "Mechanistic Interpretability, AI Safety and Model Auditing"
+      ],
+      "rationale": "Distributed systems and reliable data architecture.",
+      "duplicateStatus": "external_inventory_unchecked",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
+      "readingStatus": "unselected",
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
+    },
+    {
+      "id": "a16z-2026-031",
+      "title": "Working in Public: The Making and Maintenance of Open Source Software",
+      "author": "Nadia Eghbal",
+      "sourceGenre": "Science and technology",
+      "sourceSubgenre": "Computing and the internet",
+      "scores": {
+        "intellectualValue": 4,
+        "practicalApplication": 4,
+        "relevance": 4,
+        "composite": 4
+      },
+      "disciplines": [
+        "Business and Entrepreneurship",
+        "Psychology and Human Behaviour"
+      ],
+      "rationale": "Open-source economics and community sustainability.",
+      "duplicateStatus": "external_inventory_unchecked",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
+      "readingStatus": "unselected",
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
+    },
+    {
+      "id": "a16z-2026-032",
+      "title": "Algorithms to Live By: The Computer Science of Human Decisions",
+      "author": "Brian Christian and Tom Griffiths",
+      "sourceGenre": "Science and technology",
+      "sourceSubgenre": "Models, systems, and decisions",
+      "scores": {
+        "intellectualValue": 4,
+        "practicalApplication": 5,
+        "relevance": 5,
+        "composite": 4.6
+      },
+      "disciplines": [
+        "Psychology and Human Behaviour",
+        "Economics and Wealth"
+      ],
+      "rationale": "Algorithmic thinking for everyday decisions.",
+      "duplicateStatus": "external_inventory_unchecked",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
+      "readingStatus": "unselected",
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
+    },
+    {
+      "id": "a16z-2026-033",
+      "title": "Superforecasting: The Art and Science of Prediction",
+      "author": "Philip E. Tetlock and Dan Gardner",
+      "sourceGenre": "Science and technology",
+      "sourceSubgenre": "Models, systems, and decisions",
+      "scores": {
+        "intellectualValue": 5,
+        "practicalApplication": 5,
+        "relevance": 5,
+        "composite": 5
+      },
+      "disciplines": [
+        "Psychology and Human Behaviour",
+        "Geopolitics",
+        "Economics and Wealth"
+      ],
+      "rationale": "Calibration and probabilistic forecasting.",
+      "duplicateStatus": "external_inventory_unchecked",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
+      "readingStatus": "unselected",
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
+    },
+    {
+      "id": "a16z-2026-034",
+      "title": "Thinking in Systems: A Primer",
+      "author": "Donella Meadows",
+      "sourceGenre": "Science and technology",
+      "sourceSubgenre": "Models, systems, and decisions",
+      "scores": {
+        "intellectualValue": 5,
+        "practicalApplication": 5,
+        "relevance": 5,
+        "composite": 5
+      },
+      "disciplines": [
+        "Business and Entrepreneurship",
+        "Supply Chain and Logistics",
+        "Healthcare Data Analysis"
+      ],
+      "rationale": "Feedback loops, stocks, flows and leverage points.",
+      "duplicateStatus": "external_inventory_unchecked",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
+      "readingStatus": "unselected",
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
+    },
+    {
+      "id": "a16z-2026-035",
+      "title": "The Beginning of Infinity: Explanations That Transform the World",
+      "author": "David Deutsch",
+      "sourceGenre": "Science and technology",
+      "sourceSubgenre": "From idea to reality",
+      "scores": {
+        "intellectualValue": 5,
+        "practicalApplication": 4,
+        "relevance": 4,
+        "composite": 4.4
+      },
+      "disciplines": [
+        "Philosophy",
+        "History and Dynastic Systems"
+      ],
+      "rationale": "Explanatory knowledge and progress.",
+      "duplicateStatus": "external_inventory_unchecked",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
+      "readingStatus": "unselected",
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
+    },
+    {
+      "id": "a16z-2026-036",
+      "title": "The Idea Factory: Bell Labs and the Great Age of American Innovation",
+      "author": "Jon Gertner",
+      "sourceGenre": "Science and technology",
+      "sourceSubgenre": "From idea to reality",
+      "scores": {
+        "intellectualValue": 5,
+        "practicalApplication": 4,
+        "relevance": 4,
+        "composite": 4.4
+      },
+      "disciplines": [
+        "Business and Entrepreneurship",
+        "History and Dynastic Systems"
+      ],
+      "rationale": "Institutional innovation and research management.",
+      "duplicateStatus": "external_inventory_unchecked",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
+      "readingStatus": "unselected",
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
+    },
+    {
+      "id": "a16z-2026-037",
+      "title": "The Structure of Scientific Revolutions",
+      "author": "Thomas Kuhn",
+      "sourceGenre": "Science and technology",
+      "sourceSubgenre": "From idea to reality",
+      "scores": {
+        "intellectualValue": 5,
+        "practicalApplication": 4,
+        "relevance": 5,
+        "composite": 4.65
+      },
+      "disciplines": [
+        "Philosophy",
+        "Healthcare Data Analysis",
+        "Mechanistic Interpretability, AI Safety and Model Auditing"
+      ],
+      "rationale": "Scientific paradigms and evidence standards.",
+      "duplicateStatus": "external_inventory_unchecked",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
+      "readingStatus": "unselected",
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
+    },
+    {
+      "id": "a16z-2026-038",
+      "title": "Project Hail Mary",
+      "author": "Andy Weir",
+      "sourceGenre": "Fiction",
+      "sourceSubgenre": "Science fiction",
+      "scores": {
+        "intellectualValue": 4,
+        "practicalApplication": 3,
+        "relevance": 3,
+        "composite": 3.4
+      },
+      "disciplines": [
+        "Mechanistic Interpretability, AI Safety and Model Auditing",
+        "Philosophy"
+      ],
+      "rationale": "Engineering problem-solving in speculative conditions.",
+      "duplicateStatus": "external_inventory_unchecked",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
+      "readingStatus": "unselected",
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
+    },
+    {
+      "id": "a16z-2026-039",
+      "title": "Remembrance of Earth’s Past (Three-Body) trilogy",
+      "author": "Cixin Liu",
+      "sourceGenre": "Fiction",
+      "sourceSubgenre": "Science fiction",
+      "scores": {
+        "intellectualValue": 4,
+        "practicalApplication": 3,
+        "relevance": 4,
+        "composite": 3.65
+      },
+      "disciplines": [
+        "Geopolitics",
+        "Philosophy",
+        "History and Dynastic Systems"
+      ],
+      "rationale": "Strategic interaction and civilizational risk.",
+      "duplicateStatus": "external_inventory_unchecked",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
+      "readingStatus": "unselected",
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
+    },
+    {
+      "id": "a16z-2026-040",
+      "title": "The Invincible",
+      "author": "Stanisław Lem",
+      "sourceGenre": "Fiction",
+      "sourceSubgenre": "Science fiction",
+      "scores": {
+        "intellectualValue": 4,
+        "practicalApplication": 3,
+        "relevance": 3,
+        "composite": 3.4
+      },
+      "disciplines": [
+        "Philosophy",
+        "Mechanistic Interpretability, AI Safety and Model Auditing"
+      ],
+      "rationale": "Limits of human understanding of nonhuman systems.",
+      "duplicateStatus": "external_inventory_unchecked",
+      "repositoryInventoryStatus": "seed_only_not_full_repo_audit",
+      "readingStatus": "unselected",
+      "mandatory": false,
+      "sourceVerification": "needs_publisher_page_validation"
+    }
+  ]
+}

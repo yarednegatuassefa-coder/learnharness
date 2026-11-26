@@ -85,3 +85,10 @@ LearnHarness does not install, embed, host, sync with or automatically publish t
 4. Review evidence, calculations, citations, privacy, layout and the final deliverable before distribution.
 
 This is a **workflow and routing layer**, not a universal document renderer. The point is to keep the central process consistent without forcing every project into the same design or application.
+
+
+## External reading library: a16z Frontier 300+ books
+
+The plugin repository includes an optional external reading-library seed based on the a16z Frontier collection published 24 November 2026. It is a reference catalogue, not a mandatory assignment list. The provisional seed maps candidate titles to the existing twelve disciplines and applies a transparent weighted priority score. See [reading-library/README.md](reading-library/README.md), the [seed catalogue](reading-library/a16z-frontier-2026-seed.json), [12-month optional sequence](reading-library/12-month-plan.md), and [scoring and duplicate review](reading-library/scoring-and-deduplication.md).
+
+Import status is provisional: the source contains 300+ recommendations and the committed JSON contains 40 candidate records awaiting full source validation, not the full extraction. Lastbook is a separate offline app; no duplicate check against its local inventory is claimed without a user-supplied title export.
