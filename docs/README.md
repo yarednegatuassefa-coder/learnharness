@@ -24,6 +24,7 @@
 ## Curriculum specifications
 
 - [Mechanistic Interpretability, AI Safety and Model Auditing](curriculum/mechanistic-interpretability-ai-safety-model-auditing.md) — discipline 12 in the integrated Strategic Learning Programme, connected to the AI Engineering Learning Path and applied across Cloud L, Melat Supermarket, MMV Medical, and Home; includes six stages, diagnostics, project investigations, and evidence-based completion criteria.
+- [Graph Engineering with Google ADK](curriculum/graph-engineering-google-adk.md) — optional external module on graph-based multi-agent design, fan-out/join, routers, bounded loops, approval gates, and a PR-review capstone.
 
 ## History
 
