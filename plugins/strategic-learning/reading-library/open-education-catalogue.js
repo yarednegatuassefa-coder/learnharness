@@ -67,7 +67,7 @@ export const OPEN_EDUCATION_SEQUENCE = [
 ["4","Computer science core","CS50, Teach Yourself CS, Nand2Tetris","Build a small program and explain its abstractions."],
 ["5","Natural science","Physics Classroom, Chemistry LibreTexts, HHMI","Write a concept map and evidence-based explanation."],
 ["6","Health and neuroscience literacy","Learn.Genetics, BioInteractive, neuroscience sources","Evaluate a health/science claim against primary references."],
-["7","Philosophy and reasoning","SEP, IEP, Philosophize This!","Write an argument with a serious counterargument."],
+["7","Philosophy and reasoning","SEP, IEP, Philosophize.org (verify URL)","Write an argument with a serious counterargument."],
 ["8","Research literacy","arXiv, Quanta, Distill","Compare a preprint with independent explanatory coverage."],
 ["9","AI foundations","fast.ai, Dive into Deep Learning","Reproduce a small experiment with a baseline."],
 ["10","Interdisciplinary synthesis","MIT OCW, OpenLearn, Aeon","Connect one scientific, historical and economic explanation."],
