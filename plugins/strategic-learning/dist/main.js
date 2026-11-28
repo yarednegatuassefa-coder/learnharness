@@ -1,4 +1,5 @@
 import { INVESTOR_SOURCES } from "../reading-library/catalogue.js";
+import { OPEN_EDUCATION_SOURCES, OPEN_EDUCATION_PATHWAYS, OPEN_EDUCATION_SEQUENCE } from "../reading-library/open-education-catalogue.js";
 
 const DOMAINS = [
   { id: "political-science", name: "Political Science and Power", goal: "Understand how power is acquired, institutionalised, legitimised, contested and transferred.", stages: ["Political concepts, authority, sovereignty and the state", "Institutions, constitutions, regimes and legitimacy", "Political realism, interests, incentives and statecraft", "Elites, coalitions, bureaucracy and political economy", "Revolutions, coups, succession and state failure", "Comparative case studies and strategic analysis"], project: "Compare how two states preserve elite coalitions and state capacity under pressure." },
@@ -131,6 +132,43 @@ function investorLibraryView() {
   return section;
 }
 
+
+function openEducationLibraryView() {
+  const section=el("section","sl-open-education");
+  section.id="university-open-education-library";
+  section.append(el("p","sl-eyebrow","OPTIONAL OPEN EDUCATION LIBRARY"),el("h2","sl-library-title","University & Open Education Library"),el("p","sl-library-lede","A curated map of university courses, open textbooks, research archives and learning tools. Use it to build a coherent syllabus—not to collect tabs."));
+  const summary=el("div","sl-library-summary");
+  [["50","curated resources"],["6","learning pathways"],["0","mandatory assignments"]].forEach(([n,label])=>{const stat=el("div","sl-stat");stat.append(el("strong","",n),el("span","",label));summary.append(stat);});
+  section.append(summary);
+  const controls=el("div","sl-library-controls");
+  const search=el("input","sl-search");search.type="search";search.placeholder="Search resource, subject or use…";search.setAttribute("aria-label","Search open education resources");
+  const topic=el("select","sl-library-select");topic.setAttribute("aria-label","Filter by subject");
+  const topics=["All subjects",...new Set(OPEN_EDUCATION_SOURCES.map(s=>s.category))].sort((a,b)=>a==="All subjects"?-1:b==="All subjects"?1:a.localeCompare(b));
+  topics.forEach(v=>{const o=el("option","",v);o.value=v;topic.append(o);});
+  const tier=el("select","sl-library-select");tier.setAttribute("aria-label","Filter by source quality");
+  [["All tiers",""],["A · Institutional / scholarly","A"],["B · Specialist / educational","B"],["C · Commentary / media","C"]].forEach(([l,v])=>{const o=el("option","",l);o.value=v;tier.append(o);});
+  const priority=el("select","sl-library-select");priority.setAttribute("aria-label","Filter by learning priority");
+  [["All priorities",""],["P1 · Core","P1"],["P2 · Applied","P2"],["P3 · Supplementary","P3"]].forEach(([l,v])=>{const o=el("option","",l);o.value=v;priority.append(o);});
+  controls.append(search,topic,tier,priority);section.append(controls);
+  const count=el("p","sl-library-count",""),grid=el("div","sl-library-grid");
+  const render=()=>{const q=search.value.trim().toLowerCase();const matches=OPEN_EDUCATION_SOURCES.filter(s=>[s.name,s.category,s.access,s.notes,s.priority,s.quality].join(" ").toLowerCase().includes(q)&&(topic.value==="All subjects"||s.category===topic.value)&&(!tier.value||s.quality===tier.value)&&(!priority.value||s.priority===priority.value));
+    count.textContent=`Showing ${matches.length} of ${OPEN_EDUCATION_SOURCES.length} resources`;grid.replaceChildren();
+    if(!matches.length){grid.append(el("p","sl-empty","No resources match these filters."));return;}
+    matches.forEach(s=>{const card=el("article","sl-source-card");const top=el("div","sl-source-top");top.append(el("span","sl-source-number",String(s.id).padStart(2,"0")),el("h3","sl-source-name",s.name));const tags=el("div","sl-source-tags");tags.append(el("span","sl-source-tag",`Tier ${s.quality}`),el("span","sl-source-tag",s.priority),el("span","sl-source-tag",s.category));card.append(top,tags,el("p","sl-source-notes",s.notes));const access=el("p","sl-open-access",s.access);card.append(access);const a=el("a","sl-source-link","Open resource");a.href=s.url;a.target="_blank";a.rel="noopener noreferrer";card.append(a);grid.append(card);});
+  };
+  [search,topic,tier,priority].forEach(c=>c.addEventListener(c===search?"input":"change",render));section.append(count,grid);
+  const pathways=el("div","sl-library-pathways");pathways.append(el("h3","","Six optional learning pathways"));const pg=el("div","sl-library-pathway-grid");
+  OPEN_EDUCATION_PATHWAYS.forEach(p=>{const card=el("article","sl-library-pathway");card.append(el("h4","",p.title),el("p","sl-library-pathway-tools",p.focus),el("p","",p.sources),el("p","sl-open-output",`Suggested output: ${p.output}`));pg.append(card);});pathways.append(pg);
+  const sequence=el("details","sl-library-sequence");sequence.append(el("summary","","Optional 12-week learning cycle"));const list=el("div","sl-library-week-list");
+  OPEN_EDUCATION_SEQUENCE.forEach(([week,focus,sources,output])=>{const row=el("div","sl-library-week");const detail=el("div","");detail.append(el("strong","",focus));row.append(el("span","sl-library-week-number",week),detail,el("p","",sources),el("p","sl-library-output",`Output: ${output}`));list.append(row);});sequence.append(list);pathways.append(sequence);section.append(pathways);
+  const notes=el("div","sl-library-cautions");notes.append(el("h3","","Access and evidence rules"));const ul=el("ul","","");
+  ["A course catalogue is not proof that every listed course is free. Check the individual course page, region and current terms before enrolling.","Free audit access, open course materials, free textbooks, free certificates and academic credit are different things. Certificates, graded work, extended access and compute may cost money.","Open educational resources can carry different Creative Commons or other licences. Check attribution, adaptation and commercial-use conditions before reusing material.","Preprints on arXiv are not necessarily peer reviewed. Treat journalism, talks and commentary as entry points; trace consequential claims to primary research.","Use one coherent course sequence at a time. Retrieval practice, problem sets and applied projects matter more than accumulating bookmarks."].forEach(x=>ul.append(el("li","",x)));
+  notes.append(ul,el("p","sl-library-disclaimer","Educational resource index. Access, pricing, course availability and licensing can change; verify directly with each provider."));section.append(notes);
+  const prompt=el("p","sl-library-prompt","Diagnose my current level and design a prerequisite-aware learning path using the University & Open Education Library. Select one primary course, supporting textbook and practice resource. Distinguish free materials from audit access, paid certificates and restricted features. Teach through retrieval, worked examples and unfamiliar problems. End each stage with an applied project, evidence checks and a review of what I can now do independently.");
+  const copy=el("button","sl-copy","Copy learning-path starter prompt");copy.type="button";copy.addEventListener("click",async()=>{try{await navigator.clipboard.writeText(prompt.textContent);copy.textContent="Copied";}catch{copy.textContent="Select and copy the prompt";}});
+  section.append(prompt,copy);return section;
+}
+
 export function activate(ctx) {
   ctx.registerView({
     id: "curriculum",
@@ -260,7 +298,7 @@ export function activate(ctx) {
       const homebrewNote=el("p","sl-publish-note","Homebrewery is linked as an independent specialist tool. LearnHarness does not install, embed, host, sync with or automatically publish to it. Open it separately when a D&D / fantasy page layout is appropriate.");
       router.append(homebrewNote);
       publish.append(router);
-      root.append(intro,search,list,cross,reference,publish,investorLibraryView());
+      root.append(intro,search,list,cross,reference,publish,investorLibraryView(),openEducationLibraryView());
       container.append(root);
       render();
       return () => { root.remove(); };
