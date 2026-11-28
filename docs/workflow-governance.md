@@ -38,3 +38,7 @@ Track diagnostic usefulness, concept-check accuracy, misconception recurrence, d
 ## Current implementation status
 
 This is a domain-specific operating and evaluation plan. It does not assert that all metrics are instrumented or that every workflow has passed evaluation. Record actual test evidence and limitations in the project repository.
+
+## Letter 5 implementation
+
+See the shared [Portfolio AI and Resilience Standard](https://github.com/yarednegatuassefa-coder/home/blob/main/standards/ai-resilience.md) and the LearnHarness [AI/resilience rollout](ai-resilience-rollout.md). The first pilot is a bounded evaluation loop measured on transfer and retention, not immediate answer correctness alone.
