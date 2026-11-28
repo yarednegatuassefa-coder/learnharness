@@ -85,3 +85,17 @@ LearnHarness does not install, embed, host, sync with or automatically publish t
 4. Review evidence, calculations, citations, privacy, layout and the final deliverable before distribution.
 
 This is a **workflow and routing layer**, not a universal document renderer. The point is to keep the central process consistent without forcing every project into the same design or application.
+
+
+## Investor Intelligence Research Library
+
+The optional **Investor Intelligence Library** is part of the Strategic Learning Programme view. It catalogues 50 submitted sources for institutional disclosures, investor letters, valuation, macroeconomic data, portfolio construction, research and investor psychology. It is a research index, not a trading signal service or mandatory reading list.
+
+- Open the curriculum view and scroll to **Investor Intelligence Library**.
+- Search by source, topic or use case; filter by editorial source tier (A/B/C) and learning priority (P1/P2/P3).
+- Follow the five optional pathways and the 12-week sequence, adapting the pace to diagnostic results.
+- Use primary filings and official datasets as the source of record; aggregators and commentary are discovery and interpretation layers.
+- 13F filings are delayed and incomplete. Insider and politician disclosures are not automatic signals. Backtests and valuation models require explicit assumptions and bias checks.
+- Entry 50, “Our Finite World,” remains unverified because the submitted URL was incomplete.
+
+The canonical structured catalogue and its editorial methodology live in `reading-library/`. See [the library guide](reading-library/README.md). No external data is fetched automatically, no account is required, and no source content is redistributed by the plugin.
