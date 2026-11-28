@@ -36,7 +36,7 @@ const rows = [
 [34,"Neuroscientifically Challenged","https://neuroscientificallychallenged.com/","Neuroscience","B","P2","Free articles and videos; offerings may vary","Introductory neuroscience explainers; cross-check technical claims with textbooks and research."],
 [35,"Stanford Encyclopedia of Philosophy","https://plato.stanford.edu/","Philosophy","A","P1","Free scholarly reference","Expert-maintained encyclopedia articles with bibliographies and revision histories."],
 [36,"Internet Encyclopedia of Philosophy","https://iep.utm.edu/","Philosophy","A","P1","Free scholarly reference","Peer-reviewed introductory and advanced philosophy articles."],
-[37,"Philosophize This!","https://www.philosophizethis.org/","Philosophy","B","P2","Free podcast episodes; supplementary products may be paid","Accessible narrative introductions to philosophers and traditions."],
+[37,"Philosophize.org (submitted URL)","https://philosophize.org/","Philosophy","C","P3","Submitted URL; verify current availability before relying on it","The supplied domain could not be confidently matched to an authoritative introductory philosophy resource during curation."],
 [38,"Crash Course","https://thecrashcourse.com/","Interdisciplinary","B","P1","Free video courses; some materials / products may be paid","Concise video series across history, science, economics and humanities."],
 [39,"TED Talks","https://www.ted.com/talks","Interdisciplinary ideas","C","P3","Free talk access; event and educational products vary","Expert talks for idea discovery; verify claims before treating them as evidence."],
 [40,"Big Think","https://bigthink.com/","Interdisciplinary ideas","C","P3","Mixed free and paid content","Expert interviews and essays; useful as commentary, not a substitute for primary research."],
@@ -57,7 +57,7 @@ export const OPEN_EDUCATION_PATHWAYS = [
 {title:"Quantitative reasoning",focus:"Move from intuition to formal problem-solving",sources:"Khan Academy, Paul's Notes, 3Blue1Brown, Desmos, GeoGebra, Feynman Lectures",output:"A worked-problem portfolio explaining methods, assumptions and errors."},
 {title:"Computer science from first principles",focus:"Understand systems before chasing frameworks",sources:"CS50, Teach Yourself CS, Nand2Tetris, MIT OCW",output:"A small working system plus an explanation of its architecture."},
 {title:"Science and health literacy",focus:"Understand mechanisms and evaluate scientific claims",sources:"Physics Classroom, Chemistry LibreTexts, HHMI BioInteractive, Learn.Genetics, neuroscience references, Quanta",output:"An evidence brief separating established findings, hypotheses and uncertainty."},
-{title:"Philosophy and strategic thought",focus:"Strengthen argument, epistemology and conceptual analysis",sources:"Stanford Encyclopedia of Philosophy, IEP, Philosophize This!, Aeon",output:"A comparative argument with premises, counterarguments and source notes."},
+{title:"Philosophy and strategic thought",focus:"Strengthen argument, epistemology and conceptual analysis",sources:"Stanford Encyclopedia of Philosophy, IEP, Philosophize.org (verify URL), Aeon",output:"A comparative argument with premises, counterarguments and source notes."},
 {title:"AI and machine learning",focus:"Progress from conceptual foundations to implementation",sources:"Distill, fast.ai, Dive into Deep Learning, arXiv",output:"A reproducible experiment with baselines, evaluation and limitations."}
 ];
 export const OPEN_EDUCATION_SEQUENCE = [
