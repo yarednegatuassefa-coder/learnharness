@@ -83,3 +83,17 @@ Entry 50 (“Our Finite World”) was supplied without a complete URL. It is int
 ## Disclaimer
 
 Educational research only. This catalogue does not provide personalised financial advice, verify the accuracy of every external source, or recommend any security, fund, asset allocation or transaction. Investment decisions involve risk, including loss of capital.
+
+
+## University & Open Education Library
+
+The optional **University & Open Education Library** adds 50 curated entries spanning university courseware, open textbooks, learning platforms, mathematics and science tools, philosophy, research archives, computer science and AI.
+
+- Search by resource, subject, editorial tier and learning priority.
+- Browse six optional learning pathways and a 12-week learning cycle.
+- Each entry records an access classification, source-quality tier, priority and use note.
+- Access labels distinguish free materials, free audit options, freemium services and paid products; they are not guarantees of current availability or price.
+- Open resources can have different licences. Check reuse terms before adapting or redistributing materials.
+- The arXiv and media entries are research-discovery or explanatory resources, not substitutes for peer review or primary evidence.
+
+This is an optional resource index, not 50 mandatory assignments or a promise of free certificates. The structured catalogue is in `open-education-catalogue.js`.

@@ -99,3 +99,16 @@ The optional **Investor Intelligence Library** is part of the Strategic Learning
 - Entry 50, “Our Finite World,” remains unverified because the submitted URL was incomplete.
 
 The canonical structured catalogue and its editorial methodology live in `reading-library/`. See [the library guide](reading-library/README.md). No external data is fetched automatically, no account is required, and no source content is redistributed by the plugin.
+
+
+## University & Open Education Library
+
+The curriculum view includes an optional searchable library of 50 university courses, open textbooks, learning tools and research resources. It complements the Investor Intelligence Library and does not add mandatory coursework.
+
+- Filter by subject, source tier and learning priority.
+- Follow six optional pathways or the 12-week study cycle.
+- Check the per-resource access label: open materials, audit access, freemium and paid offerings are not interchangeable.
+- Verify current access, certificate fees and licences directly with providers.
+- Use primary research and peer-reviewed sources for consequential claims; media and preprints are discovery layers.
+
+Structured source data: `reading-library/open-education-catalogue.js`.
