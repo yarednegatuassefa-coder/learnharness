@@ -1,3 +1,5 @@
+import { INVESTOR_SOURCES } from "../reading-library/catalogue.js";
+
 const DOMAINS = [
   { id: "political-science", name: "Political Science and Power", goal: "Understand how power is acquired, institutionalised, legitimised, contested and transferred.", stages: ["Political concepts, authority, sovereignty and the state", "Institutions, constitutions, regimes and legitimacy", "Political realism, interests, incentives and statecraft", "Elites, coalitions, bureaucracy and political economy", "Revolutions, coups, succession and state failure", "Comparative case studies and strategic analysis"], project: "Compare how two states preserve elite coalitions and state capacity under pressure." },
   { id: "geopolitics", name: "Geopolitics", goal: "Analyse how geography, resources, technology and economic dependencies shape international power.", stages: ["Geography, territory, chokepoints and strategic depth", "International relations theories and national interests", "Alliances, deterrence, diplomacy and security dilemmas", "Energy, critical minerals, food and water security", "Sanctions, trade routes, geoeconomics and technology controls", "Regional orders and great-power competition"], project: "Map the strategic dependencies of a major trade corridor." },
@@ -18,6 +20,115 @@ function el(tag, className, text) {
   if (className) node.className = className;
   if (text !== undefined) node.textContent = text;
   return node;
+}
+
+
+function investorLibraryView() {
+  const section = el("section", "sl-investor-library");
+  section.id = "investor-intelligence-library";
+  section.append(
+    el("p", "sl-eyebrow", "OPTIONAL EXTERNAL RESEARCH LIBRARY"),
+    el("h2", "sl-library-title", "Investor Intelligence Library"),
+    el("p", "sl-library-lede", "A source map for learning how capital is allocated, businesses are valued and financial systems behave. Use it to investigate claims—not to copy trades.")
+  );
+  const summary = el("div", "sl-library-summary");
+  [["50","submitted entries"],["1","unverified URL"],["0","mandatory assignments"]].forEach(([n,label]) => {
+    const stat=el("div","sl-stat"); stat.append(el("strong","",n),el("span","",label)); summary.append(stat);
+  });
+  section.append(summary);
+  const controls=el("div","sl-library-controls");
+  const search=el("input","sl-search");
+  search.type="search"; search.placeholder="Search source, topic or research use…"; search.setAttribute("aria-label","Search investor intelligence sources");
+  const topic=el("select","sl-library-select");
+  topic.setAttribute("aria-label","Filter by topic");
+  const topics=["All topics",...new Set(INVESTOR_SOURCES.map(s=>s.category))].sort((a,b)=>a==="All topics"?-1:b==="All topics"?1:a.localeCompare(b));
+  topics.forEach(value=>{const option=el("option","",value);option.value=value;topic.append(option);});
+  const quality=el("select","sl-library-select");
+  quality.setAttribute("aria-label","Filter by source quality");
+  [["All tiers",""],["A · Primary / institutional","A"],["B · Specialist / analytical","B"],["C · Commentary / community","C"]].forEach(([label,value])=>{const option=el("option","",label);option.value=value;quality.append(option);});
+  const priority=el("select","sl-library-select");
+  priority.setAttribute("aria-label","Filter by learning priority");
+  [["All priorities",""],["P1 · Core","P1"],["P2 · Applied","P2"],["P3 · Supplementary","P3"]].forEach(([label,value])=>{const option=el("option","",label);option.value=value;priority.append(option);});
+  controls.append(search,topic,quality,priority); section.append(controls);
+  const results=el("p","sl-library-count","");
+  const list=el("div","sl-library-grid");
+  const render=()=>{
+    const q=search.value.trim().toLowerCase();
+    const matches=INVESTOR_SOURCES.filter(s=>{
+      const text=[s.name,s.category,s.notes,s.priority,s.quality].join(" ").toLowerCase();
+      return (!q||text.includes(q))&&(topic.value==="All topics"||s.category===topic.value)&&(!quality.value||s.quality===quality.value)&&(!priority.value||s.priority===priority.value);
+    });
+    results.textContent=`Showing ${matches.length} of ${INVESTOR_SOURCES.length} sources`;
+    list.replaceChildren();
+    if(!matches.length){list.append(el("p","sl-empty","No sources match these filters."));return;}
+    matches.forEach(source=>{
+      const card=el("article","sl-source-card");
+      const top=el("div","sl-source-top");
+      top.append(el("span","sl-source-number",String(source.id).padStart(2,"0")));
+      const name=el("h3","sl-source-name",source.name); top.append(name);
+      const tags=el("div","sl-source-tags");
+      tags.append(el("span","sl-source-tag",`Tier ${source.quality}`),el("span","sl-source-tag",source.priority),el("span","sl-source-tag",source.category));
+      card.append(top,tags,el("p","sl-source-notes",source.notes));
+      if(source.url){
+        const link=el("a","sl-source-link","Open source");
+        link.href=source.url;link.target="_blank";link.rel="noopener noreferrer";card.append(link);
+      } else {
+        card.append(el("span","sl-source-unverified","URL not verified — link withheld"));
+      }
+      list.append(card);
+    });
+  };
+  [search,topic,quality,priority].forEach(control=>control.addEventListener(control===search?"input":"change",render));
+  section.append(results,list);
+  const pathways=el("div","sl-library-pathways");
+  pathways.append(el("h3","","Five research pathways"));
+  const pathwayData=[
+    ["1 · Source-of-truth literacy","SEC EDGAR, Berkshire letters, Federal Reserve, ECB, BIS and FRED","Learn to read filings, footnotes, reporting periods, statistical definitions and revisions."],
+    ["2 · Business analysis and valuation","Annual reports, SEC filings and Damodaran","Understand economics, cash flow, balance sheets, competitive position and valuation assumptions."],
+    ["3 · Macro regime analysis","FRED, Federal Reserve, ECB, BIS and specialist research","Build scenarios for rates, inflation, credit and liquidity; test rather than inherit forecasts."],
+    ["4 · Portfolio construction and risk","AQR, CFA Institute, Bogleheads, ETF Database, Portfolio Visualizer and Curvo","Study diversification, fees, factor exposures, drawdowns, taxes and backtest limitations."],
+    ["5 · Behaviour and competing theses","Oaktree, Collaborative Fund, Of Dollars and Data and selected theses","Identify incentives, behavioural errors, disconfirming evidence and what would change a conclusion."]
+  ];
+  const pathwayGrid=el("div","sl-library-pathway-grid");
+  pathwayData.forEach(([title,tools,description])=>{const item=el("article","sl-library-pathway");item.append(el("h4","",title),el("p","sl-library-pathway-tools",tools),el("p","",description));pathwayGrid.append(item);});
+  pathways.append(pathwayGrid);
+  const sequence=el("details","sl-library-sequence");
+  sequence.append(el("summary","","Optional 12-week research sequence"));
+  const weeks=[
+    ["1","Financial statements and filings","SEC EDGAR, Berkshire letters, AnnualReports","Company and filing map"],
+    ["2","Accounting quality and cash flow","SEC EDGAR, Damodaran, Stock Analysis","Earnings-to-cash-flow reconciliation"],
+    ["3","Business quality and competitive position","Berkshire letters, Oaktree, annual reports","Business-quality memo"],
+    ["4","Valuation foundations","Damodaran data and blog, CFI","Valuation model with explicit assumptions"],
+    ["5","Rates and inflation","FRED, Federal Reserve, ECB","Macro dashboard with series definitions"],
+    ["6","Credit and financial cycles","BIS, Bridgewater, Oaktree","Credit-cycle brief with competing scenarios"],
+    ["7","Portfolio theory and diversification","AQR, CFA Institute, Bogleheads","Portfolio exposure and risk map"],
+    ["8","Funds, fees and implementation","ETF Database, Morningstar, Curvo","ETF comparison using current issuer factsheets"],
+    ["9","Backtesting and model risk","Portfolio Visualizer, AQR","Backtest critique and bias checklist"],
+    ["10","Institutional disclosures","SEC 13F filings, Dataroma, WhaleWisdom","Dated holdings comparison—not a copy-trade list"],
+    ["11","Investor psychology","Collaborative Fund, Of Dollars and Data, A Wealth of Common Sense","Decision journal and behavioural error analysis"],
+    ["12","Independent investment thesis","Primary filings, Damodaran and macro sources","Thesis, valuation range, risks and disconfirming evidence"]
+  ];
+  const table=el("div","sl-library-week-list");
+  weeks.forEach(([week,focus,refs,output])=>{const row=el("div","sl-library-week");const detail=el("div","");detail.append(el("strong","",focus));row.append(el("span","sl-library-week-number",week),detail,el("p","",refs),el("p","sl-library-output",`Output: ${output}`));table.append(row);});
+  sequence.append(table);pathways.append(sequence);section.append(pathways);
+  const cautions=el("div","sl-library-cautions");
+  cautions.append(el("h3","","Interpretation rules"),el("ul","",""));
+  const ul=cautions.querySelector("ul");
+  [
+    "13F filings are delayed, incomplete snapshots—not real-time portfolios or complete strategies.",
+    "Politician and insider disclosures are not automatic trading signals; inspect timing, transaction type and original filings.",
+    "Aggregators are discovery tools. Verify material claims against original filings, issuers or statistical agencies.",
+    "Backtests are sensitive to survivorship, look-ahead bias, costs, taxes, liquidity, currency and benchmark choice.",
+    "Valuation is conditional on assumptions. Show sensitivity; do not treat a model output as an objective price.",
+    "Research publishers have incentives. Identify the author's perspective, business model and what would disconfirm the thesis."
+  ].forEach(item=>ul.append(el("li","",item)));
+  cautions.append(el("p","sl-library-disclaimer","Educational research only. This library does not provide personalised financial advice or recommend securities, funds or transactions. Some sources may change their free access, licensing or availability."));
+  section.append(cautions);
+  const prompt=el("p","sl-library-prompt","Diagnose my understanding of financial statements, business quality, valuation and macroeconomic risk. Use the Investor Intelligence Library as a source map, prioritise primary evidence, and build a staged path from filings to an independent investment thesis. For each material claim identify its source, date, assumptions, incentives, counter-evidence and uncertainty. Do not recommend a trade or treat disclosed holdings as signals.");
+  const copy=el("button","sl-copy","Copy investor research starter prompt");copy.type="button";
+  copy.addEventListener("click",async()=>{try{await navigator.clipboard.writeText(prompt.textContent);copy.textContent="Copied";}catch{copy.textContent="Select and copy the prompt";}});
+  section.append(prompt,copy);
+  return section;
 }
 
 export function activate(ctx) {
@@ -149,7 +260,7 @@ export function activate(ctx) {
       const homebrewNote=el("p","sl-publish-note","Homebrewery is linked as an independent specialist tool. LearnHarness does not install, embed, host, sync with or automatically publish to it. Open it separately when a D&D / fantasy page layout is appropriate.");
       router.append(homebrewNote);
       publish.append(router);
-      root.append(intro,search,list,cross,reference,publish);
+      root.append(intro,search,list,cross,reference,publish,investorLibraryView());
       container.append(root);
       render();
       return () => { root.remove(); };
