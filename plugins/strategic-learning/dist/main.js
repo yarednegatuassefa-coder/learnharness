@@ -109,7 +109,7 @@ function investorLibraryView() {
     ["12","Independent investment thesis","Primary filings, Damodaran and macro sources","Thesis, valuation range, risks and disconfirming evidence"]
   ];
   const table=el("div","sl-library-week-list");
-  weeks.forEach(([week,focus,refs,output])=>{const row=el("div","sl-library-week");row.append(el("span","sl-library-week-number",week),el("div","",el("strong","",focus)),el("p","",refs),el("p","sl-library-output",`Output: ${output}`));table.append(row);});
+  weeks.forEach(([week,focus,refs,output])=>{const row=el("div","sl-library-week");const detail=el("div","");detail.append(el("strong","",focus));row.append(el("span","sl-library-week-number",week),detail,el("p","",refs),el("p","sl-library-output",`Output: ${output}`));table.append(row);});
   sequence.append(table);pathways.append(sequence);section.append(pathways);
   const cautions=el("div","sl-library-cautions");
   cautions.append(el("h3","","Interpretation rules"),el("ul","",""));
